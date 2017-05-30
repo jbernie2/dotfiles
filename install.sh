@@ -7,3 +7,4 @@ mkdir $install_dir/.bash
 cp -viR .bash/ $install_dir/.bash
 cp -vi .bash_profile $install_dir
 cp -vi .tmux.conf $install_dir
+cp -vi .gitconfig $install_dir
