@@ -24,6 +24,9 @@ Plugin 'altercation/vim-colors-solarized'
 " auto-commenter
 Plugin 'scrooloose/nerdcommenter'
 
+" js synxtax highlighting
+Plugin 'jelera/vim-javascript-syntax'
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -44,8 +47,10 @@ let mapleader = ","
 
 map \| :NERDTreeFind<CR>
 
-" enable syntax highligting
+" enable syntax highligting and palette
+set t_Co=256
 syntax enable
+set background=dark 
 
 " show line numbers
 set number
