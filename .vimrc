@@ -27,6 +27,9 @@ Plugin 'scrooloose/nerdcommenter'
 " js synxtax highlighting
 Plugin 'jelera/vim-javascript-syntax'
 
+" elm syntax highlighting and utils
+Plugin 'elmcast/elm-vim'
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -47,7 +50,7 @@ let mapleader = ","
 
 map \| :NERDTreeFind<CR>
 
-" enable syntax highligting and palette
+" enable syntax highligting and set palette
 set t_Co=256
 syntax enable
 set background=dark 
@@ -62,6 +65,6 @@ map <Leader>/ <Plug>NERDCommenterToggle
 set tabstop=2
 " when indenting with '>', use 2 spaces width
 set shiftwidth=2
-" On pressing tab, insert 4 spaces
+" On pressing tab, insert 2 spaces
 set expandtab
 
