@@ -61,6 +61,9 @@ set number
 " ,/ to comment/uncomment lines
 map <Leader>/ <Plug>NERDCommenterToggle
 
+" ,a to search word under cursor
+map <Leader>a "zyiw:Ack <C-r>z<CR>
+
 " highlight search results
 set hlsearch
 
@@ -71,3 +74,8 @@ set shiftwidth=2
 " On pressing tab, insert 2 spaces
 set expandtab
 
+" don't wrap long lines of text
+set nowrap
+
+" hitting space bar clears the current search highlighting
+nmap <Space>  :let @/ = ""<CR>
