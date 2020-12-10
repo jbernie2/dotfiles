@@ -3,4 +3,6 @@
   lg = log --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
 [user]
   name = John Bernier
-  email = john.b.bernier@gmail.com
+  email = john.bernier@stash.com
+[branch]
+  autosetupmerge = always
