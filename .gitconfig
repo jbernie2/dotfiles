@@ -4,5 +4,3 @@
 [user]
   name = John Bernier
   email = john.bernier@stash.com
-[branch]
-  autosetupmerge = always
