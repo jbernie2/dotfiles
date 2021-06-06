@@ -30,6 +30,9 @@ Plugin 'jelera/vim-javascript-syntax'
 " elm syntax highlighting and utils
 Plugin 'elmcast/elm-vim'
 
+" Ack search tool
+Plugin 'mileszs/ack.vim'
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -79,3 +82,4 @@ set nowrap
 
 " hitting space bar clears the current search highlighting
 nmap <Space>  :let @/ = ""<CR>
+
