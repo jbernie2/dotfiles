@@ -7,10 +7,12 @@ case "$-" in
     if test -f "$FILE"; then
       source $FILE
     fi
+    ;;
  *)
     # This shell is not interactive
     $FILE = ~/.bashrc
     if test -f "$FILE"; then
       source $FILE
     fi
+    ;;
 esac
