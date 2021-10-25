@@ -3,14 +3,14 @@
 case "$-" in
  *i*)
     # This shell is interactive
-    $FILE = ~/.bash_profile
+    FILE="$HOME/.bash_profile"
     if test -f "$FILE"; then
       source $FILE
     fi
     ;;
  *)
     # This shell is not interactive
-    $FILE = ~/.bashrc
+    FILE="$HOME/.bashrc"
     if test -f "$FILE"; then
       source $FILE
     fi
