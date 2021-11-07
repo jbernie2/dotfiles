@@ -7,17 +7,25 @@ BASH_CONFIG_DIR="$(HOME)/.bash"
 help:
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}'
 
-.PHONY: bash-config
-bash-config: ## install bash config files and reload user settings
+.PHONY: bash
+bash: ## install bash config files and reload user settings
 	./scripts/create_dir.sh $(BASH_CONFIG_DIR)
 		./scripts/copy_bash_configs.sh $(BASH_CONFIG_DIR)
 		./scripts/source_config_on_startup.sh $(BASH_CONFIG_DIR)
 		./scripts/reload_bash_configuration.sh
 
-#.PHONY: git-autocomplete
-#git-autocomplete: ## install git autocomplete
-	#./scripts/create_dir.sh $(HOME_DIR) $(BASH_CONFIG_DIR)
-		#./scripts/git_auto_complete.sh
+.PHONY: git
+git: ## use git configuration
+	cp -f ./configs/git/.gitconfig $(HOME)
+
+#.PHONY: vim
+#vim: ## use vim config. Installs Vundle if not installed
+	#cp -f ./configs/git/.gitconfig $(HOME)
+
+#.PHONY: tmux
+#tmux: ## use vim config. Installs Vundle if not installed
+	#cp -f ./configs/git/.gitconfig $(HOME)
+
 	
 #.PHONY: app-build
 #app-build: ## Build app development Docker images
