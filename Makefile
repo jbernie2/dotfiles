@@ -11,7 +11,7 @@ help:
 bash-config: ## install bash config files and reload user settings
 	./scripts/create_dir.sh $(BASH_CONFIG_DIR)
 		./scripts/copy_bash_configs.sh $(BASH_CONFIG_DIR)
-		./scripts/source_config_on_startup.sh
+		./scripts/source_config_on_startup.sh $(BASH_CONFIG_DIR)
 		./scripts/reload_bash_configuration.sh
 
 #.PHONY: git-autocomplete
