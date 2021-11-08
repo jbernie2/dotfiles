@@ -24,14 +24,15 @@ vim: ## use vim config. Installs Vundle if not installed
 		./scripts/vim/install_vundle.sh $(HOME_DIR)
 		./scripts/vim/install_plugins.sh
 
-#.PHONY: tmux
-#tmux: ## use vim config. Installs Vundle if not installed
-	#cp -f ./configs/git/.gitconfig $(HOME)
+.PHONY: tmux
+tmux: ## use tmux config.
+	cp -f ./configs/tmux/.tmux.conf $(HOME)
 
 	
-#.PHONY: app-build
-#app-build: ## Build app development Docker images
-	#$(MAKE) app-build-base-image
-	## build app dev image
-	#docker-compose build app
+#.PHONY: all
+all: ## install all configurations
+	$(MAKE) bash
+		$(MAKE) git
+		$(MAKE) vim
+		$(MAKE) tmux
 

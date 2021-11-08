@@ -53,6 +53,9 @@ let mapleader = ","
 
 map \| :NERDTreeFind<CR>
 
+" show hidden files in NERDTree
+let NERDTreeShowHidden=1
+
 " enable syntax highligting and set palette
 set t_Co=256
 syntax enable
