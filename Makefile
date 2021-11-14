@@ -2,10 +2,16 @@
 
 HOME_DIR=$(HOME)
 BASH_CONFIG_DIR="$(HOME)/.bash"
+BASH_COMPLETION_DIR="$(BASH_CONFIG_DIR)/bash-completion"
 
 .PHONY: help
 help:
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}'
+
+.PHONY: packages
+packages: ## package manager installs
+	./scripts/homebrew/install.sh
+		./scripts/homebrew/packages.sh
 
 .PHONY: bash
 bash: ## install/reload bash config files
@@ -19,7 +25,7 @@ git: ## use git configuration
 	cp -f ./configs/git/.gitconfig $(HOME)
 
 .PHONY: vim
-vim: ## use vim config. Installs Vundle if not installed
+vim: ## use vim config. Installs Vundle.
 	./scripts/vim/copy_vimrc.sh $(HOME_DIR)
 		./scripts/vim/install_vundle.sh $(HOME_DIR)
 		./scripts/vim/install_plugins.sh
@@ -27,11 +33,11 @@ vim: ## use vim config. Installs Vundle if not installed
 .PHONY: tmux
 tmux: ## use tmux config.
 	cp -f ./configs/tmux/.tmux.conf $(HOME)
-
 	
 #.PHONY: all
 all: ## install all configurations
-	$(MAKE) bash
+	$(MAKE) packages
+		$(MAKE) bash
 		$(MAKE) git
 		$(MAKE) vim
 		$(MAKE) tmux
