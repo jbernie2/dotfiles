@@ -20,9 +20,13 @@ bash: ## install/reload bash config files
 		./scripts/bash/source_config_on_startup.sh $(BASH_CONFIG_DIR)
 		./scripts/bash/reload_bash_configuration.sh
 
+.PHONY: shell-greeter
+shell-greeter: ## install synth-shell-greeter
+	./scripts/bash/install_synth_shell_greeter.sh $(HOME_DIR) $(BASH_CONFIG_DIR)
+
 .PHONY: git
 git: ## use git configuration
-	cp -f ./configs/git/.gitconfig $(HOME)
+	cp -f ./configs/git/.gitconfig $(HOME_DIR)
 
 .PHONY: vim
 vim: ## use vim config. Installs Vundle.
