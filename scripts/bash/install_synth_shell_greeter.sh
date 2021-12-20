@@ -16,12 +16,13 @@ if [ ! -d "$SYNTH_SHELL_SOURCE_DIR" ]; then
     $DEPENDENCIES_DIR/synth-shell-greeter
 fi
 
-pushd "../../dependencies/synth-shell-greeter"
+pushd $SYNTH_SHELL_SOURCE_DIR
 source ./setup.sh \
   $SYNTH_SHELL_OUTPUT_SCRIPT \
   $SYNTH_SHELL_CONFIG_DIR
 
 popd
+
 cp -f \
   "../../configs/synth-shell/synth-shell-greeter.sh" \
   $BASH_CONFIG_DIR
