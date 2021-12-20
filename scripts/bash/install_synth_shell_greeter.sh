@@ -19,7 +19,8 @@ fi
 pushd $SYNTH_SHELL_SOURCE_DIR
 source ./setup.sh \
   $SYNTH_SHELL_OUTPUT_SCRIPT \
-  $SYNTH_SHELL_CONFIG_DIR
+  $SYNTH_SHELL_CONFIG_DIR \
+  n
 
 popd
 
