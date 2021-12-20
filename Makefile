@@ -24,6 +24,10 @@ bash: ## install/reload bash config files
 shell-greeter: ## install synth-shell-greeter
 	./scripts/bash/install_synth_shell_greeter.sh $(HOME_DIR) $(BASH_CONFIG_DIR)
 
+.PHONY: shell-prompt
+shell-prompt: ## install synth-shell-prompt
+	./scripts/bash/install_synth_shell_prompt.sh $(HOME_DIR) $(BASH_CONFIG_DIR)
+
 .PHONY: git
 git: ## use git configuration
 	cp -f ./configs/git/.gitconfig $(HOME_DIR)
