@@ -38,6 +38,11 @@ vim: ## use vim config. Installs Vundle.
 		./scripts/vim/install_vundle.sh $(HOME_DIR)
 		./scripts/vim/install_plugins.sh
 
+.PHONY: tmux-default-shell
+tmux-default-shell: ## open tmux on shell start
+	cp -f ./configs/tmux/0_tmux_on_startup.sh $(BASH_CONFIG_DIR)
+	
+
 .PHONY: tmux
 tmux: ## use tmux config.
 	cp -f ./configs/tmux/.tmux.conf $(HOME)
@@ -49,4 +54,5 @@ all: ## install all configurations
 		$(MAKE) git
 		$(MAKE) vim
 		$(MAKE) tmux
-
+		$(MAKE) tmux-default-shell
+		$(MAKE) shell-prompt
