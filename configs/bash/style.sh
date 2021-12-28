@@ -1,5 +1,8 @@
 # change prompt appearance
-export PS1='\u\w 𝄢 '
+parse_git_branch() {
+  git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/[\1]/'
+}
+export PS1="\$(parse_git_branch) 𝄢 "
 export PS2='> '
 
 # for information on this cryptic string see:
