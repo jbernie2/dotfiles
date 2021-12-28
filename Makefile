@@ -55,4 +55,3 @@ all: ## install all configurations
 		$(MAKE) vim
 		$(MAKE) tmux
 		$(MAKE) tmux-default-shell
-		$(MAKE) shell-prompt
