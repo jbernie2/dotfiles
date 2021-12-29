@@ -54,10 +54,36 @@ filetype plugin indent on    " required
 " set leader key to ,
 let mapleader = ","
 
-map \| :NERDTreeFind<CR>
+"""""""""""""""""""""""""""""""""""
+"""""  NERDTREE Configuration """""
+"""""""""""""""""""""""""""""""""""
+
+" if in the NerdTree window, close
+" if in a file, open, and go to that file in NerdTree
+" if in an empty buffer, open NerdTree at root directory
+function! NERDTreeToggleInCurDir()
+  if (&filetype=="nerdtree")
+    exe ":NERDTreeClose"
+  else
+    if (expand("%:t") != '')
+      exe ":NERDTreeFind"
+    else
+      exe ":NERDTreeToggle"
+    endif
+  endif
+endfunction
+
+map \| :call NERDTreeToggleInCurDir()<CR>
+
+" close vim if :q is used and the only window left is NERDTree
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 " show hidden files in NERDTree
 let NERDTreeShowHidden=1
+
+"""""""""""""""""""""""""""""""""""
+"""""""""""""""""""""""""""""""""""
+"""""""""""""""""""""""""""""""""""
 
 " enable syntax highligting and set palette
 set t_Co=256
