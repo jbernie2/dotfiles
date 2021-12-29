@@ -33,6 +33,9 @@ Plugin 'elmcast/elm-vim'
 " Ack search tool
 Plugin 'mileszs/ack.vim'
 
+" Seemless vim/tmux navigation
+Plugin 'christoomey/vim-tmux-navigator'
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -86,3 +89,8 @@ set nowrap
 " hitting space bar clears the current search highlighting
 nmap <Space>  :let @/ = ""<CR>
 
+" navigate between windows using ctrl + direction
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
