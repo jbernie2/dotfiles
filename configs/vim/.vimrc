@@ -31,8 +31,8 @@ Plugin 'jelera/vim-javascript-syntax'
 " elm syntax highlighting and utils
 Plugin 'elmcast/elm-vim'
 
-" Ack search tool
-Plugin 'mileszs/ack.vim'
+" RipGrep (Rg) search tool
+Plugin 'jremmen/vim-ripgrep'
 
 " Seemless vim/tmux navigation
 Plugin 'christoomey/vim-tmux-navigator'
@@ -98,7 +98,7 @@ set number
 map <Leader>/ <Plug>NERDCommenterToggle
 
 " ,a to search word under cursor
-map <Leader>a "zyiw:Ack <C-r>z<CR>
+map <Leader>a "zyiw:Rg --hidden --glob "!.git/*" <C-r>z<CR>
 
 " highlight search results
 set hlsearch
