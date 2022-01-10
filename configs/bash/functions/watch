@@ -1,0 +1,13 @@
+#!/bin/bash
+
+cd "$(dirname "$0")"
+echo "watching current directory, excuting \"$1\" on file change"
+
+fswatch \
+  -e ".*\.swp" \     # dont listen to changes on vim tmp files
+  -e ".*\.swx" \
+  -o \               # pipe the number of changes
+  . \
+  | xargs -n1 -I{} \ # black hole for args
+  echo hi            # command to run on change
+
