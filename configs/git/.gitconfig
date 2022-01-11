@@ -5,3 +5,5 @@
 [user]
   name = John Bernier
   email = john.bernier@stash.com
+[pull]
+  ff = only
