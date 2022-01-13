@@ -3,5 +3,5 @@ brew update
 brew install bash-completion
 brew install fzf
 brew install ripgrep
-brew install fswatch
+brew install watchexec
 
