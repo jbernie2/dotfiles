@@ -37,6 +37,9 @@ Plugin 'jremmen/vim-ripgrep'
 " Seemless vim/tmux navigation
 Plugin 'christoomey/vim-tmux-navigator'
 
+" Send command to tmux from vim
+Plugin 'preservim/vimux'
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -127,3 +130,6 @@ map <C-p> :FZF<CR>
 
 " use system clipboard for yanking text
 set clipboard=unnamed
+
+" run a command in adjacent tmux window
+map <Leader>vp :VimuxPromptCommand<CR>
