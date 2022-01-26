@@ -1,59 +1,44 @@
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
+call plug#begin('~/.vim/plugged')
+" Plugins go here
 
 " let Vundle manage Vundle, required
-Plugin 'VundleVim/Vundle.vim'
+Plug 'VundleVim/Vundle.vim'
 
 " file tree
-Plugin 'scrooloose/nerdtree'
+Plug 'scrooloose/nerdtree'
 
 " fuzzy finder
-Plugin 'junegunn/fzf'
-Plugin 'junegunn/fzf.vim'
+Plug 'junegunn/fzf'
+Plug 'junegunn/fzf.vim'
 
 " easily delete, change and add surroundings in pairs
-Plugin 'tpope/vim-surround'
+Plug 'tpope/vim-surround'
 
-Plugin 'altercation/vim-colors-solarized'
+Plug 'altercation/vim-colors-solarized'
 
 " auto-commenter
-Plugin 'scrooloose/nerdcommenter'
+Plug 'scrooloose/nerdcommenter'
 
 " js synxtax highlighting
-Plugin 'jelera/vim-javascript-syntax'
+Plug 'jelera/vim-javascript-syntax'
 
 " elm syntax highlighting and utils
-Plugin 'elmcast/elm-vim'
+Plug 'elmcast/elm-vim'
 
 " RipGrep (Rg) search tool
-Plugin 'jremmen/vim-ripgrep'
+Plug 'jremmen/vim-ripgrep'
 
 " Seemless vim/tmux navigation
-Plugin 'christoomey/vim-tmux-navigator'
+Plug 'christoomey/vim-tmux-navigator'
 
 " Send command to tmux from vim
-Plugin 'preservim/vimux'
+Plug 'preservim/vimux'
 
 " All of your Plugins must be added before the following line
-call vundle#end()            " required
-filetype plugin indent on    " required
-" To ignore plugin indent changes, instead use:
-"filetype plugin on
-"
-" Brief help
-" :PluginList       - lists configured plugins
-" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
-" :PluginSearch foo - searches for foo; append `!` to refresh local cache
-" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
-"
-" see :h vundle for more details or wiki for FAQ
-" Put your non-Plugin stuff after this line
+call plug#end()
 
 " set leader key to ,
 let mapleader = ","
@@ -62,6 +47,7 @@ let mapleader = ","
 """""  NERDTREE Configuration """""
 """""""""""""""""""""""""""""""""""
 
+" make '|' command smart
 " if in the NerdTree window, close
 " if in a file, open, and go to that file in NerdTree
 " if in an empty buffer, open NerdTree at root directory
