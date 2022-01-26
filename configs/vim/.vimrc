@@ -37,6 +37,12 @@ Plug 'christoomey/vim-tmux-navigator'
 " Send command to tmux from vim
 Plug 'preservim/vimux'
 
+" Language server integration
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
+" Scala Language server integration
+Plug 'scalameta/coc-metals', {'do': 'yarn install --frozen-lockfile'}
+
 " All of your Plugins must be added before the following line
 call plug#end()
 
@@ -149,3 +155,27 @@ function! FindReplace()
 endfunction
 
 :nnoremap <Leader>fr :call FindReplace()<CR>
+
+"""""""""""""""""""""""""""""""""""
+""""""""  CoC Configuration """""""
+"""""""""""""""""""""""""""""""""""
+
+" Help Vim recognize *.sbt and *.sc as Scala files
+au BufRead,BufNewFile *.sbt,*.sc set filetype=scala
+
+" " Used to expand decorations in worksheets
+nmap <Leader>ws <Plug>(coc-metals-expand-decoration)
+
+" " Toggle panel with Tree Views
+nmap <Leader>t :<C-u>CocCommand metals.tvp<CR>
+" " Toggle Tree View 'metalsPackages'
+nmap <Leader>tp :<C-u>CocCommand metals.tvp metalsPackages<CR>
+" " Toggle Tree View 'metalsCompile'
+nmap <Leader>tc :<C-u>CocCommand metals.tvp metalsCompile<CR>
+" " Toggle Tree View 'metalsBuild'
+nmap <Leader>tb :<C-u>CocCommand metals.tvp metalsBuild<CR>
+" " Reveal current current class (trait or object) in Tree View 'metalsPackages'
+nmap <Leader>tf :<C-u>CocCommand metals.revealInTreeView metalsPackages<CR>
+
+"""""""""""""""""""""""""""""""""""
+"""""""""""""""""""""""""""""""""""
