@@ -20,14 +20,6 @@ bash: ## install/reload bash config files
 		./scripts/bash/source_config_on_startup.sh $(BASH_CONFIG_DIR)
 		./scripts/bash/reload_bash_configuration.sh
 
-.PHONY: shell-greeter
-shell-greeter: ## install synth-shell-greeter
-	./scripts/bash/install_synth_shell_greeter.sh $(HOME_DIR) $(BASH_CONFIG_DIR)
-
-.PHONY: shell-prompt
-shell-prompt: ## install synth-shell-prompt
-	./scripts/bash/install_synth_shell_prompt.sh $(HOME_DIR) $(BASH_CONFIG_DIR)
-
 .PHONY: git
 git: ## use git configuration
 	cp -f ./configs/git/.gitconfig $(HOME_DIR)
@@ -46,9 +38,21 @@ tmux-default-shell: ## open tmux on shell start
 tmux: ## use tmux config.
 	cp -f ./configs/tmux/.tmux.conf $(HOME)
 
-.PHONY: tmux
+.PHONY: additional-steps
 additional-steps: ## manual steps to complete installs.
 	./scripts/fzf/complete_install.sh
+
+.PHONY: iterm-profile
+iterm-profile: ## iterm customizations
+	cp -f ./configs/iterm/com.googlecode.iterm2.plist $(HOME_DIR)/Library/Preferences
+
+.PHONY: shell-greeter
+shell-greeter: ## install synth-shell-greeter
+	./scripts/bash/install_synth_shell_greeter.sh $(HOME_DIR) $(BASH_CONFIG_DIR)
+
+.PHONY: shell-prompt
+shell-prompt: ## install synth-shell-prompt
+	./scripts/bash/install_synth_shell_prompt.sh $(HOME_DIR) $(BASH_CONFIG_DIR)
 	
 #.PHONY: all
 all: ## install all configurations
@@ -58,4 +62,5 @@ all: ## install all configurations
 		$(MAKE) vim
 		$(MAKE) tmux
 		$(MAKE) tmux-default-shell
+		$(MAKE) iterm-profile
 		$(MAKE) additional-steps
