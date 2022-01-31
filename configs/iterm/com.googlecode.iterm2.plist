@@ -704,6 +704,8 @@
 			<string></string>
 			<key>Silence Bell</key>
 			<true/>
+			<key>Space</key>
+			<integer>2</integer>
 			<key>Sync Title</key>
 			<false/>
 			<key>Tags</key>
@@ -773,6 +775,8 @@
 	<false/>
 	<key>SwitchPaneModifier</key>
 	<integer>9</integer>
+	<key>UseLionStyleFullscreen</key>
+	<false/>
 	<key>VisualIndicatorForEsc</key>
 	<false/>
 	<key>WordCharacters</key>
