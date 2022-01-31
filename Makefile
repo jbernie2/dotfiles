@@ -19,6 +19,7 @@ bash: ## install/reload bash config files
 		./scripts/bash/copy_bash_configs.sh $(BASH_CONFIG_DIR)
 		./scripts/bash/source_config_on_startup.sh $(BASH_CONFIG_DIR)
 		./scripts/bash/reload_bash_configuration.sh
+		./scripts/git/auto_complete.sh $(BASH_CONFIG_DIR)
 
 .PHONY: git
 git: ## use git configuration
