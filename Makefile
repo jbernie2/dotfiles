@@ -37,7 +37,7 @@ tmux-default-shell: ## open tmux on shell start
 
 .PHONY: tmux
 tmux: ## use tmux config.
-	cp -f ./configs/tmux/.tmux.conf $(HOME)
+	cp -f ./configs/tmux/.tmux.conf $(HOME_DIR)
 
 .PHONY: additional-steps
 additional-steps: ## manual steps to complete installs.
