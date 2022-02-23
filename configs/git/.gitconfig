@@ -7,3 +7,5 @@
   email = john.bernier@stash.com
 [pull]
   ff = only
+[push]
+  default = current
