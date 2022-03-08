@@ -37,6 +37,9 @@ Plug 'christoomey/vim-tmux-navigator'
 " Send command to tmux from vim
 Plug 'preservim/vimux'
 
+" 'G blame' and other git commands
+Plug 'tpope/vim-fugitive'
+
 " All of your Plugins must be added before the following line
 call plug#end()
 
