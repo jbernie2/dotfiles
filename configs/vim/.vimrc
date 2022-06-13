@@ -37,8 +37,8 @@ Plug 'christoomey/vim-tmux-navigator'
 " Send command to tmux from vim
 Plug 'preservim/vimux'
 
-" 'G blame' and other git commands
-Plug 'tpope/vim-fugitive'
+" Writable search aka global find and replace
+Plug 'AndrewRadev/writable_search.vim'
 
 " All of your Plugins must be added before the following line
 call plug#end()
@@ -123,32 +123,4 @@ set clipboard=unnamed
 " run a command in adjacent tmux window
 map <Leader>vp :VimuxPromptCommand<CR>
 
-" global find/replace inside working directory
-function! FindReplace()
-  " figure out which directory we're in
-	let dir = expand('%:h')
-  " ask for patterns
-  call inputsave()
-  let find = input('Pattern: ')
-  call inputrestore()
-  let replace = input('Replacement: ')
-  call inputrestore()
-  " are you sure?
-  let confirm = input('WARNING: About to replace ' . find . ' with ' . replace . ' in ' . dir . '/**/* (y/n):')
-  " clear echoed message
-  :redraw
-  if confirm == 'y'
-    " find with rigrep (populate quickfix )
-    :silent exe 'Rg ' . find
-    " use cfdo to substitute on all quickfix files
-    :silent exe 'cfdo %s/' . find . '/' . replace . '/g | update'
-    " close quickfix window
-    :silent exe 'cclose'
-    :echom('Replaced ' . find . ' with ' . replace . ' in all files in ' . dir )
-  else
-    :echom('Find/Replace Aborted :(')
-    return
-  endif
-endfunction
-
-:nnoremap <Leader>fr :call FindReplace()<CR>
+command! -nargs=? Ws WritableSearch <args>
