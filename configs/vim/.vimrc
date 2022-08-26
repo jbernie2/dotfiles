@@ -4,6 +4,8 @@ filetype off                  " required
 call plug#begin('~/.vim/plugged')
 " Plugins go here
 
+" git plugin
+Plug 'tpope/vim-fugitive'
 
 " file tree
 Plug 'scrooloose/nerdtree'
