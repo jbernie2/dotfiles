@@ -4,8 +4,6 @@ filetype off                  " required
 call plug#begin('~/.vim/plugged')
 " Plugins go here
 
-" let Vundle manage Vundle, required
-Plug 'VundleVim/Vundle.vim'
 
 " file tree
 Plug 'scrooloose/nerdtree'
