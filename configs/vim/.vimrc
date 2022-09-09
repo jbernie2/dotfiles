@@ -22,11 +22,6 @@ Plug 'altercation/vim-colors-solarized'
 " auto-commenter
 Plug 'scrooloose/nerdcommenter'
 
-" js synxtax highlighting
-Plug 'jelera/vim-javascript-syntax'
-
-" elm syntax highlighting and utils
-Plug 'elmcast/elm-vim'
 
 " RipGrep (Rg) search tool
 Plug 'jremmen/vim-ripgrep'
@@ -39,6 +34,14 @@ Plug 'preservim/vimux'
 
 " Writable search aka global find and replace
 Plug 'AndrewRadev/writable_search.vim'
+
+"javascript Plugins
+" js synxtax highlighting
+Plug 'jelera/vim-javascript-syntax'
+
+"elm Plugins
+" elm syntax highlighting and utils
+Plug 'elmcast/elm-vim'
 
 " All of your Plugins must be added before the following line
 call plug#end()
