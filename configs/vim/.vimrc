@@ -81,6 +81,14 @@ let NERDTreeShowHidden=1
 """""""""""""""""""""""""""""""""""
 """""""""""""""""""""""""""""""""""
 
+" set some nice defaults for folding
+" fold based on language
+set foldmethod=syntax
+
+" fold inner most block cursor is on
+" don't automatically fold everything when opening a file
+set foldlevel=99
+
 " enable syntax highligting and set palette
 set t_Co=256
 syntax enable
