@@ -3,6 +3,7 @@
 HOME_DIR=$(HOME)
 BASH_CONFIG_DIR="$(HOME)/.bash"
 BASH_COMPLETION_DIR="$(BASH_CONFIG_DIR)/bash-completion"
+KEYBOARD_LAYOUT_DIR="./keyboards"
 
 .PHONY: help
 help:
@@ -55,6 +56,10 @@ shell-greeter: ## install synth-shell-greeter
 shell-prompt: ## install synth-shell-prompt
 	./scripts/bash/install_synth_shell_prompt.sh $(HOME_DIR) $(BASH_CONFIG_DIR)
 	
+.PHONY: build-ergodox-keymap
+build-ergodox-keymap: ## build ergodox keymap using qmk
+	./scripts/qmk/build_keymap.sh $(KEYBOARD_LAYOUT_DIR) "ergodox_ez" "jbernie2"
+
 #.PHONY: all
 all: ## install all configurations
 	$(MAKE) packages
