@@ -56,9 +56,13 @@ shell-greeter: ## install synth-shell-greeter
 shell-prompt: ## install synth-shell-prompt
 	./scripts/bash/install_synth_shell_prompt.sh $(HOME_DIR) $(BASH_CONFIG_DIR)
 	
-.PHONY: build-ergodox-keymap
-build-ergodox-keymap: ## build ergodox keymap using qmk
-	./scripts/qmk/build_keymap.sh $(KEYBOARD_LAYOUT_DIR) "ergodox_ez" "jbernie2"
+.PHONY: flash-ergodox-dry-run
+flash-ergodox-dry-run: ## test ergodox keymap build
+		./scripts/qmk/build_keymap.sh $(KEYBOARD_LAYOUT_DIR) "ergodox_ez" "jbernie2" true
+
+.PHONY: flash-ergodox
+flash-ergodox: ## install ergodox keymap on keyboard
+		./scripts/qmk/build_keymap.sh $(KEYBOARD_LAYOUT_DIR) "ergodox_ez" "jbernie2" false
 
 #.PHONY: all
 all: ## install all configurations
