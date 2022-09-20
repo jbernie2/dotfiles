@@ -182,13 +182,29 @@ bool get_hold_on_other_key_press(uint16_t keycode, keyrecord_t *record) {
 
 bool get_ignore_mod_tap_interrupt(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
+        case LT(4, KC_BSPACE):
+            return true;
+        case LT(5, KC_ENTER):
+            return true;
         case LSFT_T(KC_F):
             return true;
         case LSFT_T(KC_J):
             return true;
-        case LT(4, KC_BSPACE):
+        case MT(MOD_LCTL, KC_D):
             return true;
-        case LT(5, KC_ENTER):
+        case MT(MOD_LCTL, KC_K):
+            return true;
+        case MT(MOD_LALT, KC_S):
+            return true;
+        case MT(MOD_LALT, KC_L):
+            return true;
+        case MT(MOD_LGUI, KC_Z):
+            return true;
+        case MT(MOD_LGUI, KC_SLASH):
+            return true;
+        case MT(MOD_HYPR,KC_G):
+            return true;
+        case MT(MOD_HYPR,KC_H):
             return true;
         default:
             // Force the mod-tap key press to be handled as a modifier if any
