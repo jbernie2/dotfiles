@@ -96,7 +96,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                                                                     KC_SPACE,       KC_TAB,         KC_TRANSPARENT, KC_TRANSPARENT, KC_NO,          KC_NO
   ),
   [7] = LAYOUT_ergodox_pretty(
-		_x_, _x_,    _x_,    _x_,    _x_,    _x_,     _x_,                                _x_, _x_,     _x_,    _x_,    _x_,    _x_,    _x_,
+    _x_, _x_,    _x_,    _x_,    _x_,    _x_,     _x_,                                _x_, _x_,     _x_,    _x_,    _x_,    _x_,    _x_,
     _x_, STN_N1, STN_N2, STN_N3, STN_N4, STN_N5,  _x_,                                _x_, STN_N6,  STN_N7, STN_N8, STN_N9, STN_NA, STN_NB,
     _x_, STN_S1, STN_TL, STN_PL, STN_HL, STN_ST1,                                          STN_ST3, STN_FR, STN_PR, STN_LR, STN_TR, STN_DR,
     _x_, STN_S2, STN_KL, STN_WL, STN_RL, STN_ST2, _x_,                                _x_, STN_ST4, STN_RR, STN_BR, STN_GR, STN_SR, STN_ZR,
@@ -159,14 +159,14 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
         case LGUI_T(KC_Z):
             return TAPPING_TERM + 100;
-				case LSFT_T(KC_F):
-						return TAPPING_TERM - 50;
-				case LSFT_T(KC_J):
-						return TAPPING_TERM - 50;
+        case LSFT_T(KC_F):
+            return TAPPING_TERM - 50;
+        case LSFT_T(KC_J):
+            return TAPPING_TERM - 50;
         case LT(4, KC_BSPACE):
-						return TAPPING_TERM - 40;
+            return TAPPING_TERM - 40;
         case LT(5, KC_ENTER):
-						return TAPPING_TERM - 40;
+            return TAPPING_TERM - 40;
         default:
             return TAPPING_TERM;
     }
