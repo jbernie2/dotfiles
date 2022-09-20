@@ -3,9 +3,7 @@
 keyboard_dir=$1
 keyboard_name=$2
 github_username=$3
-
 dry_run=$4
-echo "dry_run 1: $dry_run"
 
 build_layout() {
   qmk_home=$1

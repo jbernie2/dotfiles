@@ -159,16 +159,41 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
         case LGUI_T(KC_Z):
             return TAPPING_TERM + 100;
-        case LSFT_T(KC_F):
-            return TAPPING_TERM - 50;
-        case LSFT_T(KC_J):
-            return TAPPING_TERM - 50;
-        case LT(4, KC_BSPACE):
-            return TAPPING_TERM - 40;
-        case LT(5, KC_ENTER):
-            return TAPPING_TERM - 40;
         default:
             return TAPPING_TERM;
+    }
+}
+
+bool get_hold_on_other_key_press(uint16_t keycode, keyrecord_t *record) {
+    switch (keycode) {
+        case LSFT_T(KC_F):
+            return true;
+        case LSFT_T(KC_J):
+            return true;
+        case LT(4, KC_BSPACE):
+            return true;
+        case LT(5, KC_ENTER):
+            return true;
+        default:
+            // Do not select the hold action when another key is tapped.
+            return false;
+    }
+}
+
+bool get_ignore_mod_tap_interrupt(uint16_t keycode, keyrecord_t *record) {
+    switch (keycode) {
+        case LSFT_T(KC_F):
+            return true;
+        case LSFT_T(KC_J):
+            return true;
+        case LT(4, KC_BSPACE):
+            return true;
+        case LT(5, KC_ENTER):
+            return true;
+        default:
+            // Force the mod-tap key press to be handled as a modifier if any
+            // other key was pressed while the mod-tap key is held down.
+            return false;
     }
 }
 
