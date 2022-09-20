@@ -12,12 +12,12 @@ build_layout() {
   github_username=$4
   dry_run=$5
 
-  source_dir="$keyboard_dir/$keyboard_name/src"
+  source_files="$keyboard_dir/$keyboard_name/src/*"
   dest_dir="$qmk_home/keyboards/$keyboard_name/keymaps/$github_username"
 
   mkdir -p $dest_dir
 
-  cp $source_dir $dest_dir
+  cp -R $source_files $dest_dir
 
   if [ $dry_run == "false" ]; then
     echo "building and flashing layout for $keyboard_name..."
