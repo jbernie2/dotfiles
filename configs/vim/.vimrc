@@ -15,6 +15,18 @@ Plug 'tpope/vim-fugitive'
 "   hello world to (hello world): yss)
 Plug 'tpope/vim-surround'
 
+" change case of a selection
+" convert to
+"   snake_case: crs
+"   MixedCase:  crm
+"   camelCase:  crc
+"   UPPER_CASE: cru
+"   dash-case:  cr-
+"   dot.case:   cr.
+"   space case: cr<space>
+"   Title Case: crt
+Plug 'https://github.com/tpope/vim-abolish'
+
 " file tree
 Plug 'scrooloose/nerdtree'
 
