@@ -27,6 +27,9 @@ Plug 'tpope/vim-surround'
 "   Title Case: crt
 Plug 'https://github.com/tpope/vim-abolish'
 
+" make dot-repeat work with other tpope plugins
+Plug 'https://github.com/tpope/vim-repeat'
+
 " file tree
 Plug 'scrooloose/nerdtree'
 
