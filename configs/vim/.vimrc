@@ -7,15 +7,20 @@ call plug#begin('~/.vim/plugged')
 " git plugin
 Plug 'tpope/vim-fugitive'
 
+" easily delete, change and add surroundings in pairs
+" change
+"   'hello world' to [hello world]: cs']
+"   'hello world' to hello world: ds'
+"   hello world to (hello) world: ysiw)
+"   hello world to (hello world): yss)
+Plug 'tpope/vim-surround'
+
 " file tree
 Plug 'scrooloose/nerdtree'
 
 " fuzzy finder
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
-
-" easily delete, change and add surroundings in pairs
-Plug 'tpope/vim-surround'
 
 Plug 'altercation/vim-colors-solarized'
 
