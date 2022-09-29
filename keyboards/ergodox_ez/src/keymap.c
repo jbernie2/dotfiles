@@ -136,7 +136,8 @@ uint32_t layer_state_set_user(uint32_t state) {
     case 4:
       ergodox_right_led_1_on();
       ergodox_right_led_2_on();
-      break; case 5:
+      break;
+    case 5:
       ergodox_right_led_1_on();
       ergodox_right_led_3_on();
       break;
