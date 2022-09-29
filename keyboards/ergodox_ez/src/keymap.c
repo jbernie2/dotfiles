@@ -182,12 +182,21 @@ bool get_permissive_hold(uint16_t keycode, keyrecord_t *record) {
             return false;
     }
 }
+
+bool get_hold_on_other_key_press(uint16_t keycode, keyrecord_t *record) {
+    switch (keycode) {
+        case LSFT_T(KC_J):
+            return true;
+        default:
+            return false;
+    }
+}
+
 bool get_ignore_mod_tap_interrupt(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
         case LT(4, KC_BSPACE):
         case LT(5, KC_ENTER):
         case LSFT_T(KC_F):
-        case LSFT_T(KC_J):
         case MT(MOD_LCTL, KC_D):
         case MT(MOD_LCTL, KC_K):
         case MT(MOD_LALT, KC_S):
