@@ -158,13 +158,14 @@ uint32_t layer_state_set_user(uint32_t state) {
 
 uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
-        case LSFT_T(KC_F):
-        case LSFT_T(KC_J):
-            return TAPPING_TERM - 50;
+        case LT(1,KC_SPACE):
+        case MT(MOD_LCTL, KC_D):
+        case MT(MOD_HYPR,KC_G):
+            return TAPPING_TERM + 50;
         case MT(MOD_LALT, KC_S):
         case MT(MOD_LALT, KC_L):
-            return TAPPING_TERM + 50;
         case LGUI_T(KC_Z):
+        case MT(MOD_HYPR,KC_H):
             return TAPPING_TERM + 100;
         default:
             return TAPPING_TERM;
