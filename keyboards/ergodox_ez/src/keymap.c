@@ -175,7 +175,6 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
 bool get_permissive_hold(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
         case LSFT_T(KC_F):
-        case LSFT_T(KC_J):
         case LT(4, KC_BSPACE):
         case LT(5, KC_ENTER):
             return true;
@@ -199,6 +198,7 @@ bool get_ignore_mod_tap_interrupt(uint16_t keycode, keyrecord_t *record) {
         case LT(4, KC_BSPACE):
         case LT(5, KC_ENTER):
         case LSFT_T(KC_F):
+        case LSFT_T(KC_J):
         case MT(MOD_LCTL, KC_D):
         case MT(MOD_LCTL, KC_K):
         case MT(MOD_LALT, KC_S):
