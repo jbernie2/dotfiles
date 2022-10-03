@@ -97,6 +97,10 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 " show hidden files in NERDTree
 let NERDTreeShowHidden=1
 
+" BANDAID, compatibility issues with vim 9
+" keep the bottom menu restricted to 1 line
+let g:NERDTreeMinimalMenu=1
+
 """""""""""""""""""""""""""""""""""
 """""""""""""""""""""""""""""""""""
 """""""""""""""""""""""""""""""""""
