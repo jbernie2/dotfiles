@@ -3,6 +3,3 @@ VIRTSER_ENABLE = yes
 FORCE_NKRO = yes
 MOUSEKEY_ENABLE = yes
 KEYBOARD_SHARED_EP = yes
-
-VPATH  +=  keyboards/gboards/
-COMBO_ENABLE=yes

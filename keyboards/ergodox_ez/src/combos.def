@@ -1,2 +1,0 @@
-COMB(fv_shift, KC_LSFT, MT(MOD_LSFT, KC_F), KC_V)
-COMB(jm_shift, KC_LSFT, MT(MOD_LSFT, KC_J), KC_M)
