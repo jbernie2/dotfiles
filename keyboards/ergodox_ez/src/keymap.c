@@ -1,4 +1,5 @@
 #include QMK_KEYBOARD_H
+#include "g/keymap_combo.h"
 #include "keymap_steno.h"
 
 #define KC_MAC_UNDO LGUI(KC_Z)
