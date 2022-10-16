@@ -49,9 +49,6 @@ Plug 'jremmen/vim-ripgrep'
 " Seemless vim/tmux navigation
 Plug 'christoomey/vim-tmux-navigator'
 
-" Send command to tmux from vim
-Plug 'preservim/vimux'
-
 " Writable search aka global find and replace
 Plug 'AndrewRadev/writable_search.vim'
 
