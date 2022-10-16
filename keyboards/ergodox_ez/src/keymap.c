@@ -29,8 +29,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [0] = LAYOUT_ergodox_pretty(
     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, TG(7),                                          KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
     KC_TRANSPARENT, KC_Q,           KC_W,           KC_E,           KC_R,           KC_T,           KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_Y,           KC_U,           KC_I,           KC_O,           KC_P,           KC_TRANSPARENT,
-    KC_TRANSPARENT, KC_A,        MT(MOD_LALT, KC_S),MT(MOD_LCTL, KC_D),MT(MOD_LSFT, KC_F), MT(MOD_HYPR,KC_G),                                                     MT(MOD_HYPR,KC_H),MT(MOD_LSFT, KC_J),MT(MOD_LCTL, KC_K),MT(MOD_LALT, KC_L),KC_QUOTE,KC_TRANSPARENT,
-    KC_TRANSPARENT, MT(MOD_LGUI, KC_Z),KC_X,        KC_C,           KC_V,           KC_B,     KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_N,           KC_M,           KC_COMMA,             KC_DOT,MT(MOD_LGUI, KC_SLASH),  KC_TRANSPARENT,
+    KC_TRANSPARENT, MT(MOD_LGUI, KC_A),MT(MOD_LALT, KC_S),MT(MOD_LCTL, KC_D),MT(MOD_LSFT, KC_F), MT(MOD_HYPR,KC_G),                                                 MT(MOD_HYPR,KC_H),MT(MOD_LSFT, KC_J),MT(MOD_LCTL, KC_K),MT(MOD_LALT, KC_L),MT(MOD_LGUI, KC_QUOTE),KC_TRANSPARENT,
+    KC_TRANSPARENT, KC_Z,           KC_X,           KC_C,           KC_V,           KC_B,     KC_TRANSPARENT,                                       KC_TRANSPARENT, KC_N,           KC_M,           KC_COMMA,       KC_DOT,         KC_SLASH,       KC_TRANSPARENT,
     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, LT(3,KC_ESCAPE),                                                                                                LT(6,KC_DELETE),KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
                                                                                                     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
                                                                                                                     KC_TRANSPARENT, KC_TRANSPARENT,
@@ -165,7 +165,8 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
             return TAPPING_TERM + 50;
         case MT(MOD_LALT, KC_S):
         case MT(MOD_LALT, KC_L):
-        case LGUI_T(KC_Z):
+        case MT(MOD_LGUI, KC_A):
+        case MT(MOD_LGUI, KC_QUOTE):
         case MT(MOD_HYPR,KC_H):
             return TAPPING_TERM + 100;
         default:
@@ -206,8 +207,8 @@ bool get_ignore_mod_tap_interrupt(uint16_t keycode, keyrecord_t *record) {
         case MT(MOD_LCTL, KC_K):
         case MT(MOD_LALT, KC_S):
         case MT(MOD_LALT, KC_L):
-        case MT(MOD_LGUI, KC_Z):
-        case MT(MOD_LGUI, KC_SLASH):
+        case MT(MOD_LGUI, KC_A):
+        case MT(MOD_LGUI, KC_QUOTE):
         case MT(MOD_HYPR,KC_G):
         case MT(MOD_HYPR,KC_H):
           return true;
