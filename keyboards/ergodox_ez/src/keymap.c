@@ -1,5 +1,4 @@
 #include QMK_KEYBOARD_H
-#include "g/keymap_combo.h"
 #include "keymap_steno.h"
 
 #define KC_MAC_UNDO LGUI(KC_Z)
@@ -25,16 +24,31 @@ enum custom_keycodes {
   RGB_SLD = EZ_SAFE_RANGE,
 };
 
+/*const uint16_t PROGMEM fn_layer[] = {LT(5,KC_ENTER), MT(MOD_LSFT,KC_BSPACE), COMBO_END};*/
+/*combo_t key_combos[COMBO_COUNT] = {COMBO_ACTION(fn_layer)};*/
+
+/*void process_combo_event(uint16_t combo_index, bool pressed) {*/
+  /*switch(combo_index) {*/
+    /*case 0:*/
+      /*if (pressed) {*/
+        /*layer_invert(6);*/
+      /*} else {*/
+        /*layer_invert(0);*/
+      /*}*/
+      /*break;*/
+  /*}*/
+/*}*/
+
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [0] = LAYOUT_ergodox_pretty(
     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, TG(7),                                          KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
     KC_TRANSPARENT, KC_Q,           KC_W,           KC_E,           KC_R,           KC_T,           KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_Y,           KC_U,           KC_I,           KC_O,           KC_P,           KC_TRANSPARENT,
     KC_TRANSPARENT, MT(MOD_LGUI, KC_A),MT(MOD_LALT, KC_S),MT(MOD_LCTL, KC_D),MT(MOD_LSFT, KC_F), MT(MOD_HYPR,KC_G),                                                 MT(MOD_HYPR,KC_H),MT(MOD_LSFT, KC_J),MT(MOD_LCTL, KC_K),MT(MOD_LALT, KC_L),MT(MOD_LGUI, KC_QUOTE),KC_TRANSPARENT,
     KC_TRANSPARENT, KC_Z,           KC_X,           KC_C,           KC_V,           KC_B,     KC_TRANSPARENT,                                       KC_TRANSPARENT, KC_N,           KC_M,           KC_COMMA,       KC_DOT,         KC_SLASH,       KC_TRANSPARENT,
-    KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, LT(3,KC_ESCAPE),                                                                                                LT(6,KC_DELETE),KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
+    KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, LT(3,KC_ESCAPE),                                                                                                LT(4,KC_DELETE),KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
                                                                                                     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
                                                                                                                     KC_TRANSPARENT, KC_TRANSPARENT,
-                                                                                    LT(1,KC_SPACE), LT(2,KC_TAB),   KC_TRANSPARENT, KC_TRANSPARENT, LT(5,KC_ENTER), LT(4,KC_BSPACE)
+                                                                             LT(1,KC_SPACE), LT(2,KC_TAB),   KC_TRANSPARENT, KC_TRANSPARENT, LT(5,KC_ENTER), MT(MOD_LSFT,KC_BSPACE)
   ),
   [1] = LAYOUT_ergodox_pretty(
     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
@@ -159,7 +173,7 @@ uint32_t layer_state_set_user(uint32_t state) {
 
 uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
-        case LT(1,KC_SPACE):
+        case LT(1, KC_SPACE):
         case MT(MOD_LCTL, KC_D):
         case MT(MOD_HYPR,KC_G):
             return TAPPING_TERM + 50;
@@ -176,8 +190,8 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
 
 bool get_permissive_hold(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
-        case LSFT_T(KC_F):
-        case LSFT_T(KC_J):
+        case MT(MOD_LSFT, KC_F):
+        case MT(MOD_LSFT, KC_J):
         case MT(MOD_LCTL, KC_D):
         case MT(MOD_HYPR,KC_H):
         case LT(4, KC_BSPACE):
@@ -191,6 +205,7 @@ bool get_permissive_hold(uint16_t keycode, keyrecord_t *record) {
 bool get_hold_on_other_key_press(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
         case LT(5, KC_ENTER):
+        case MT(MOD_LSFT, KC_BSPACE):
             return true;
         default:
             return false;
@@ -199,10 +214,10 @@ bool get_hold_on_other_key_press(uint16_t keycode, keyrecord_t *record) {
 
 bool get_ignore_mod_tap_interrupt(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
-        case LT(4, KC_BSPACE):
+        case MT(MOD_LSFT, KC_BSPACE):
         case LT(5, KC_ENTER):
-        case LSFT_T(KC_F):
-        case LSFT_T(KC_J):
+        case MT(MOD_LSFT, KC_F):
+        case MT(MOD_LSFT, KC_J):
         case MT(MOD_LCTL, KC_D):
         case MT(MOD_LCTL, KC_K):
         case MT(MOD_LALT, KC_S):
@@ -221,7 +236,7 @@ bool get_ignore_mod_tap_interrupt(uint16_t keycode, keyrecord_t *record) {
 
 bool get_tapping_force_hold(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
-        case LT(4, KC_BSPACE):
+        case MT(MOD_LSFT, KC_BSPACE):
         case LT(5, KC_ENTER):
             return true;
         default:

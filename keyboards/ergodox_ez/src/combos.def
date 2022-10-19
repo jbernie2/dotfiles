@@ -1,2 +1,0 @@
-SUBS(caps_t,     "T", MT(MOD_LSFT, KC_J), KC_T)
-SUBS(caps_r,     "R", MT(MOD_LSFT, KC_J), KC_R)
