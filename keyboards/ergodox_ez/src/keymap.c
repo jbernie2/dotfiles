@@ -19,6 +19,12 @@
 #define BP_NDSH_MAC ALGR(KC_8)
 #define SE_SECT_MAC ALGR(KC_6)
 
+#define MT_G(kc) MT(MOD_LGUI, kc)
+#define MT_A(kc) MT(MOD_LALT, kc)
+#define MT_C(kc) MT(MOD_LCTL, kc)
+#define MT_S(kc) MT(MOD_LSFT, kc)
+#define MT_H(kc) MT(MOD_HYPR, kc)
+
 #define _x_ KC_TRANSPARENT
 
 enum custom_keycodes {
@@ -29,12 +35,12 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [0] = LAYOUT_ergodox_pretty(
     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, TG(7),                                          KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
     KC_TRANSPARENT, KC_Q,           KC_W,           KC_E,           KC_R,           KC_T,           KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_Y,           KC_U,           KC_I,           KC_O,           KC_P,           KC_TRANSPARENT,
-    KC_TRANSPARENT, MT(MOD_LGUI, KC_A),MT(MOD_LALT, KC_S),MT(MOD_LCTL, KC_D),MT(MOD_LSFT, KC_F), MT(MOD_HYPR,KC_G),                                                 MT(MOD_HYPR,KC_H),MT(MOD_LSFT, KC_J),MT(MOD_LCTL, KC_K),MT(MOD_LALT, KC_L),MT(MOD_LGUI, KC_QUOTE),KC_TRANSPARENT,
-    KC_TRANSPARENT, KC_Z,           KC_X,           KC_C,           KC_V,           KC_B,     KC_TRANSPARENT,                                       KC_TRANSPARENT, KC_N,           KC_M,           KC_COMMA,       KC_DOT,         KC_SLASH,       KC_TRANSPARENT,
+    KC_TRANSPARENT, MT_G(KC_A),     MT_A(KC_S),     MT_C(KC_D),     MT_S(KC_F),     MT_H(KC_G),                                                                     MT_H(KC_H),     MT_S(KC_J),     MT_C(KC_K),     MT_A(KC_L),     MT_G(KC_QUOTE), KC_TRANSPARENT,
+    KC_TRANSPARENT, KC_Z,           KC_X,           KC_C,           KC_V,           KC_B,           KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_N,           KC_M,           KC_COMMA,       KC_DOT,         KC_SLASH,       KC_TRANSPARENT,
     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, LT(3,KC_ESCAPE),                                                                                                LT(6,KC_DELETE),KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
                                                                                                     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
                                                                                                                     KC_TRANSPARENT, KC_TRANSPARENT,
-                                                                                    LT(1,KC_SPACE), LT(2,KC_TAB),   KC_TRANSPARENT, KC_TRANSPARENT, LT(5,KC_ENTER), LT(4,KC_BSPACE)
+                                                                             LT(1,KC_SPACE), LT(2,KC_TAB),   KC_TRANSPARENT, KC_TRANSPARENT, LT(5,KC_ENTER), LT(4,KC_BSPACE)
   ),
   [1] = LAYOUT_ergodox_pretty(
     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
@@ -159,15 +165,15 @@ uint32_t layer_state_set_user(uint32_t state) {
 
 uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
-        case LT(1,KC_SPACE):
-        case MT(MOD_LCTL, KC_D):
-        case MT(MOD_HYPR,KC_G):
+        case LT(1, KC_SPACE):
+        case MT_C(KC_D):
+        case MT_H(KC_G):
             return TAPPING_TERM + 50;
-        case MT(MOD_LALT, KC_S):
-        case MT(MOD_LALT, KC_L):
-        case MT(MOD_LGUI, KC_A):
-        case MT(MOD_LGUI, KC_QUOTE):
-        case MT(MOD_HYPR,KC_H):
+        case MT_A(KC_S):
+        case MT_A(KC_L):
+        case MT_G(KC_A):
+        case MT_G(KC_QUOTE):
+        case MT_H(KC_H):
             return TAPPING_TERM + 100;
         default:
             return TAPPING_TERM;
@@ -176,10 +182,10 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
 
 bool get_permissive_hold(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
-        case LSFT_T(KC_F):
-        case LSFT_T(KC_J):
-        case MT(MOD_LCTL, KC_D):
-        case MT(MOD_HYPR,KC_H):
+        case MT_S(KC_F):
+        case MT_S(KC_J):
+        case MT_C(KC_D):
+        case MT_H(KC_H):
         case LT(4, KC_BSPACE):
             return true;
         default:
@@ -199,18 +205,19 @@ bool get_hold_on_other_key_press(uint16_t keycode, keyrecord_t *record) {
 
 bool get_ignore_mod_tap_interrupt(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
+        case MT_S(KC_BSPACE):
         case LT(4, KC_BSPACE):
         case LT(5, KC_ENTER):
-        case LSFT_T(KC_F):
-        case LSFT_T(KC_J):
-        case MT(MOD_LCTL, KC_D):
-        case MT(MOD_LCTL, KC_K):
-        case MT(MOD_LALT, KC_S):
-        case MT(MOD_LALT, KC_L):
-        case MT(MOD_LGUI, KC_A):
-        case MT(MOD_LGUI, KC_QUOTE):
-        case MT(MOD_HYPR,KC_G):
-        case MT(MOD_HYPR,KC_H):
+        case MT_S(KC_F):
+        case MT_S(KC_J):
+        case MT_C(KC_D):
+        case MT_C(KC_K):
+        case MT_A(KC_S):
+        case MT_A(KC_L):
+        case MT_G(KC_A):
+        case MT_G(KC_QUOTE):
+        case MT_H(KC_G):
+        case MT_H(KC_H):
           return true;
         default:
             // Force the mod-tap key press to be handled as a modifier if any
