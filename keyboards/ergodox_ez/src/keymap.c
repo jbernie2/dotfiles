@@ -24,21 +24,6 @@ enum custom_keycodes {
   RGB_SLD = EZ_SAFE_RANGE,
 };
 
-/*const uint16_t PROGMEM fn_layer[] = {LT(5,KC_ENTER), MT(MOD_LSFT,KC_BSPACE), COMBO_END};*/
-/*combo_t key_combos[COMBO_COUNT] = {COMBO_ACTION(fn_layer)};*/
-
-/*void process_combo_event(uint16_t combo_index, bool pressed) {*/
-  /*switch(combo_index) {*/
-    /*case 0:*/
-      /*if (pressed) {*/
-        /*layer_invert(6);*/
-      /*} else {*/
-        /*layer_invert(0);*/
-      /*}*/
-      /*break;*/
-  /*}*/
-/*}*/
-
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [0] = LAYOUT_ergodox_pretty(
     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, TG(7),                                          KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
