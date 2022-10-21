@@ -185,6 +185,7 @@ bool get_permissive_hold(uint16_t keycode, keyrecord_t *record) {
         case MT_S(KC_J):
         case MT_C(KC_D):
         case MT_H(KC_H):
+        case MT_G(KC_QUOTE):
         case LT(4, KC_BSPACE):
             return true;
         default:
@@ -197,6 +198,7 @@ bool get_hold_on_other_key_press(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
         case LT(5, KC_ENTER):
         case MT_S(KC_BSPACE):
+        case LT(4,KC_DELETE):
             return true;
         default:
             return false;
@@ -207,6 +209,7 @@ bool get_ignore_mod_tap_interrupt(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
         case MT_S(KC_BSPACE):
         case LT(5, KC_ENTER):
+        case LT(4,KC_DELETE):
         case MT_S(KC_F):
         case MT_S(KC_J):
         case MT_C(KC_D):
@@ -229,6 +232,7 @@ bool get_tapping_force_hold(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
         case MT_S(KC_BSPACE):
         case LT(5, KC_ENTER):
+        case LT(4,KC_DELETE):
             return true;
         default:
             return false;
