@@ -1,5 +1,4 @@
 #include QMK_KEYBOARD_H
-#include "g/keymap_combo.h"
 #include "keymap_steno.h"
 
 #define KC_MAC_UNDO LGUI(KC_Z)
@@ -26,6 +25,9 @@
 #define MT_H(kc) MT(MOD_HYPR, kc)
 
 #define _x_ KC_TRANSPARENT
+
+#include "g/keymap_combo.h"
+
 
 enum custom_keycodes {
   RGB_SLD = EZ_SAFE_RANGE,
