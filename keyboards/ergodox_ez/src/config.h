@@ -5,7 +5,7 @@
 #define PERMISSIVE_HOLD_PER_KEY
 #define IGNORE_MOD_TAP_INTERRUPT_PER_KEY
 
-#define COMBO_TERM 30
+#define COMBO_TERM 40
 
 // Mouse key speed and acceleration.
 #undef MOUSEKEY_DELAY
