@@ -1,2 +1,12 @@
-SUBS(caps_t,     "T", MT(MOD_LSFT, KC_J), KC_T)
+SUBS(caps_q,     "Q", MT(MOD_LSFT, KC_J), KC_Q)
+SUBS(caps_w,     "W", MT(MOD_LSFT, KC_J), KC_W)
+SUBS(caps_e,     "E", MT(MOD_LSFT, KC_J), KC_E)
 SUBS(caps_r,     "R", MT(MOD_LSFT, KC_J), KC_R)
+SUBS(caps_t,     "T", MT(MOD_LSFT, KC_J), KC_T)
+SUBS(caps_a,     "A", MT(MOD_LSFT, KC_J), KC_A)
+SUBS(caps_s,     "S", MT(MOD_LSFT, KC_J), MT(MOD_LALT, KC_S))
+SUBS(caps_d,     "D", MT(MOD_LSFT, KC_J), MT(MOD_LCTL, KC_D))
+SUBS(caps_f,     "F", MT(MOD_LSFT, KC_J), MT(MOD_LSFT, KC_F))
+SUBS(caps_g,     "G", MT(MOD_LSFT, KC_J), MT(MOD_HYPR,KC_G))
+
+SUBS(caps_i,     "I", MT(MOD_LSFT, KC_F), KC_I)
