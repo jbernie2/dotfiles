@@ -188,6 +188,7 @@ bool get_permissive_hold(uint16_t keycode, keyrecord_t *record) {
         case MT_S(KC_J):
         case MT_C(KC_D):
         case MT_H(KC_H):
+        case MT_G(KC_QUOTE):
         case LT(4, KC_BSPACE):
             return true;
         default:
