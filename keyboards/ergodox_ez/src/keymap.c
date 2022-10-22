@@ -189,7 +189,6 @@ bool get_permissive_hold(uint16_t keycode, keyrecord_t *record) {
         case MT_C(KC_D):
         case MT_H(KC_H):
         case MT_G(KC_QUOTE):
-        case LT(4, KC_BSPACE):
             return true;
         default:
             // Do not select the hold action when another key is tapped.
@@ -199,6 +198,7 @@ bool get_permissive_hold(uint16_t keycode, keyrecord_t *record) {
 
 bool get_hold_on_other_key_press(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
+        case LT(4, KC_BSPACE):
         case LT(5, KC_ENTER):
             return true;
         default:
