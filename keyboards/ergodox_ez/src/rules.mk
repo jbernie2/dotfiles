@@ -6,3 +6,5 @@ KEYBOARD_SHARED_EP = yes
 
 VPATH  +=  keyboards/gboards/
 COMBO_ENABLE=yes
+
+CAPS_WORD_ENABLE = yes
