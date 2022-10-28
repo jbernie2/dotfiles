@@ -239,3 +239,12 @@ bool get_tapping_force_hold(uint16_t keycode, keyrecord_t *record) {
     }
 }
 
+bool get_combo_must_press_in_order(uint16_t combo_index, combo_t *combo) {
+    switch (combo_index) {
+        case df_shift:
+        case jk_shift:
+            return false;
+        default:
+            return true;
+    }
+}
