@@ -25,6 +25,7 @@ bash: ## install/reload bash config files
 .PHONY: git
 git: ## use git configuration
 	cp -f ./configs/git/.gitconfig $(HOME_DIR)
+	cp -Rf ./configs/git/.git_template $(HOME_DIR)
 
 .PHONY: vim
 vim: ## use vim config. Installs Vundle.
