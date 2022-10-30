@@ -40,6 +40,10 @@ tmux-default-shell: ## open tmux on shell start
 tmux: ## use tmux config.
 	cp -f ./configs/tmux/.tmux.conf $(HOME_DIR)
 
+.PHONY: ctags
+ctags: ## use ctags config.
+	cp -Rf ./configs/ctags/.ctags.d $(HOME_DIR)
+
 .PHONY: additional-steps
 additional-steps: ## manual steps to complete installs.
 	./scripts/fzf/complete_install.sh
