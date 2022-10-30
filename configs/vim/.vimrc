@@ -152,9 +152,6 @@ map <C-p> :FZF<CR>
 " use system clipboard for yanking text
 set clipboard=unnamed
 
-" run a command in adjacent tmux window
-map <Leader>vp :VimuxPromptCommand<CR>
-
 command! -nargs=? Ws WritableSearch <args>
 
 au BufWritePost *.c,*.h,*.rb,.*.js,*.hs,*.elm,*.java,*.scala,*.sh silent! !ctags -R &
