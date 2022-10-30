@@ -156,3 +156,6 @@ set clipboard=unnamed
 map <Leader>vp :VimuxPromptCommand<CR>
 
 command! -nargs=? Ws WritableSearch <args>
+
+au BufWritePost *.c,*.h,*.rb,.*.js,*.hs,*.elm,*.java,*.scala,*.sh silent! !ctags -R &
+
