@@ -60,6 +60,9 @@ Plug 'jelera/vim-javascript-syntax'
 " elm syntax highlighting and utils
 Plug 'elmcast/elm-vim'
 
+" nix syntax highlighting
+Plug 'LnL7/vim-nix'
+
 " All of your Plugins must be added before the following line
 call plug#end()
 
