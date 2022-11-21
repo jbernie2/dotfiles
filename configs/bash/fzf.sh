@@ -5,3 +5,5 @@ if type rg &> /dev/null; then
 else
   export FZF_DEFAULT_COMMAND="find ."
 fi
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
