@@ -45,10 +45,6 @@ tmux: ## use tmux config.
 ctags: ## use ctags config.
 	cp -Rf ./configs/ctags/.ctags.d $(HOME_DIR)
 
-.PHONY: additional-steps
-additional-steps: ## manual steps to complete installs.
-	./scripts/fzf/complete_install.sh
-
 .PHONY: iterm-profile
 iterm-profile: ## iterm customizations
 	cp -f ./configs/iterm/com.googlecode.iterm2.plist $(HOME_DIR)/Library/Preferences
