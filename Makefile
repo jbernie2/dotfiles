@@ -41,6 +41,10 @@ tmux-default-shell: ## open tmux on shell start
 tmux: ## use tmux config.
 	cp -f ./configs/tmux/.tmux.conf $(HOME_DIR)
 
+.PHONY: psql
+psql: ## use psql-cli config.
+	cp -f ./configs/psql/.psqlrc $(HOME_DIR)
+
 .PHONY: ctags
 ctags: ## use ctags config.
 	cp -Rf ./configs/ctags/.ctags.d $(HOME_DIR)
@@ -73,5 +77,6 @@ all: ## install all configurations
 		$(MAKE) vim
 		$(MAKE) tmux
 		$(MAKE) tmux-default-shell
+		$(MAKE) psql
 		$(MAKE) iterm-profile
 		$(MAKE) additional-steps
