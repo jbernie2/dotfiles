@@ -1,12 +1,52 @@
+// Left Hand Combos
+
 COMB(af_shift,     KC_LSFT, KC_A, KC_F)
 COMB(ad_ctrl,      KC_LCTL, KC_A, KC_D)
 COMB(as_alt,       KC_LALT, KC_A, KC_S)
 COMB(ag_gui,       KC_RGUI, KC_A, KC_G)
-COMB(ag_hypr,      MOD_HYPR, KC_A, KC_V)
+COMB(ag_hypr,      KC_HYPR, KC_A, KC_V)
+
+COMB(afd_shift_ctrl,     S(KC_LCTL), KC_A, KC_F, KC_D)
+COMB(afs_shift_alt,      S(KC_LALT), KC_A, KC_F, KC_S)
+COMB(afg_shift_gui,      S(KC_LGUI), KC_A, KC_F, KC_G)
+
+COMB(ads_ctrl_alt,       C(KC_LALT), KC_A, KC_D, KC_S)
+COMB(adg_ctrl_gui,       C(KC_LGUI), KC_A, KC_D, KC_G)
+
+COMB(asg_alt_gui,        A(KC_LGUI), KC_A, KC_S, KC_G)
+
+COMB(afds_shift_ctrl_alt,        S(C(KC_LALT)), KC_A, KC_F, KC_D, KC_S)
+COMB(afsg_shift_ctrl_gui,        S(C(KC_LGUI)), KC_A, KC_F, KC_D, KC_G)
+
+COMB(afsg_shift_alt_gui,         S(A(KC_LGUI)), KC_A, KC_F, KC_S, KC_G)
+
+COMB(adsg_ctrl_alt_gui,          C(A(KC_LGUI)), KC_A, KC_D, KC_S, KC_G)
+
+COMB(asdfg_hyper,                KC_HYPR, KC_A, KC_S, KC_D, KC_F, KC_G)
+
+
+// Right Hand Combos
 
 COMB(qj_shift,     KC_LSFT, KC_QUOTE, KC_J)
 COMB(qk_ctrl,      KC_LCTL, KC_QUOTE, KC_K)
 COMB(ql_alt,       KC_LALT, KC_QUOTE, KC_L)
 COMB(qh_gui,       KC_RGUI, KC_QUOTE, KC_H)
-COMB(qm_hypr,      MOD_HYPR, KC_QUOTE, KC_M)
+COMB(qm_hypr,      KC_HYPR, KC_QUOTE, KC_M)
 
+COMB(qjk_shift_ctrl,     S(KC_LCTL), KC_QUOTE, KC_J, KC_K)
+COMB(qjl_shift_alt,      S(KC_LALT), KC_QUOTE, KC_J, KC_L)
+COMB(qjh_shift_gui,      S(KC_LGUI), KC_QUOTE, KC_J, KC_H)
+
+COMB(qkl_ctrl_alt,       C(KC_LALT), KC_QUOTE, KC_K, KC_L)
+COMB(qkh_ctrl_gui,       C(KC_LGUI), KC_QUOTE, KC_K, KC_H)
+
+COMB(qlh_alt_gui,        A(KC_LGUI), KC_QUOTE, KC_L, KC_H)
+
+COMB(qjkl_shift_ctrl_alt,        S(C(KC_LALT)), KC_QUOTE, KC_J, KC_K, KC_L)
+COMB(qjlh_shift_ctrl_gui,        S(C(KC_LGUI)), KC_QUOTE, KC_J, KC_L, KC_H)
+
+COMB(qjlh_shift_alt_gui,         S(A(KC_LGUI)), KC_QUOTE, KC_J, KC_L, KC_H)
+
+COMB(qklh_ctrl_alt_gui,          C(A(KC_LGUI)), KC_QUOTE, KC_K, KC_L, KC_H)
+
+COMB(qlkjh_hyper,                KC_HYPR, KC_QUOTE, KC_L, KC_K, KC_J, KC_H)
