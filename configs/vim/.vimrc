@@ -63,6 +63,8 @@ Plug 'elmcast/elm-vim'
 " nix syntax highlighting
 Plug 'LnL7/vim-nix'
 
+Plug 'idris-hackers/idris-vim'
+
 " All of your Plugins must be added before the following line
 call plug#end()
 
