@@ -184,11 +184,6 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
 
 bool get_permissive_hold(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
-        case MT_S(KC_F):
-        case MT_S(KC_J):
-        case MT_C(KC_D):
-        case MT_H(KC_H):
-        case MT_G(KC_QUOTE):
         case LT(1, KC_SPACE):
             return true;
         default:
@@ -213,16 +208,6 @@ bool get_ignore_mod_tap_interrupt(uint16_t keycode, keyrecord_t *record) {
         case LT(1, KC_SPACE):
         case LT(4, KC_BSPACE):
         case LT(5, KC_ENTER):
-        case MT_S(KC_F):
-        case MT_S(KC_J):
-        case MT_C(KC_D):
-        case MT_C(KC_K):
-        case MT_A(KC_S):
-        case MT_A(KC_L):
-        case MT_G(KC_A):
-        case MT_G(KC_QUOTE):
-        case MT_H(KC_G):
-        case MT_H(KC_H):
           return true;
         default:
             // Force the mod-tap key press to be handled as a modifier if any
