@@ -52,14 +52,6 @@ ctags: ## use ctags config.
 .PHONY: iterm-profile
 iterm-profile: ## iterm customizations
 	cp -f ./configs/iterm/com.googlecode.iterm2.plist $(HOME_DIR)/Library/Preferences
-
-.PHONY: shell-greeter
-shell-greeter: ## install synth-shell-greeter
-	./scripts/bash/install_synth_shell_greeter.sh $(HOME_DIR) $(BASH_CONFIG_DIR)
-
-.PHONY: shell-prompt
-shell-prompt: ## install synth-shell-prompt
-	./scripts/bash/install_synth_shell_prompt.sh $(HOME_DIR) $(BASH_CONFIG_DIR)
 	
 .PHONY: flash-ergodox-dry-run
 flash-ergodox-dry-run: ## test ergodox keymap build
