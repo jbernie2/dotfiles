@@ -159,5 +159,6 @@ set clipboard=unnamed
 
 command! -nargs=? Ws WritableSearch <args>
 
-au BufWritePost *.c,*.h,*.rb,.*.js,*.hs,*.elm,*.java,*.scala,*.sh silent! !ctags -R &
+" update ctags on file save
+au BufWritePost * silent! ![[ -f ~/.ctags.d/generate_ctags.sh ]] && source ~/.ctags.d/generate_ctags.sh &
 
