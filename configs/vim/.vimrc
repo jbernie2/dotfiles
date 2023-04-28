@@ -129,6 +129,12 @@ map <Leader>/ <Plug>NERDCommenterToggle
 " ,a to search word under cursor
 map <Leader>a "zyiw:Rg --hidden --glob "!.git/*" <C-r>z<CR>
 
+" ,l copy current file path to clipboard
+map <leader>l :let @+=expand("%")<CR>
+
+" ,n copy current file path and line number to clipboard
+map <leader>n :let @+=fnamemodify(expand("%"), ":~:.") . ":" . line(".")<CR>
+
 " highlight search results
 set hlsearch
 
