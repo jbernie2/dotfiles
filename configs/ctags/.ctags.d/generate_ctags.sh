@@ -6,7 +6,7 @@ in_git_repo=$(
 if [ $in_git_repo = "true" ]; then
   # include paths from the repo's git ignore
   paths_to_ignore=$(git check-ignore *)
-  ignore_file=mktemp
+  ignore_file=$(mktemp)
   echo $paths_to_ignore > $ignore_file
 
   # pass file to ctags to ignore files specified by repo
