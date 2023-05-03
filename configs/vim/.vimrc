@@ -119,10 +119,17 @@ let g:NERDTreeMinimalMenu=1
 " :LspInstallServer
 " which will install a language server to a global location
 " based on the file type that is open when the command is run
+"
+
+" keep language server off by default
+let g:lsp_auto_enable = 0
+
+" run LspOn to enable language server
+command LspOn call lsp#enable()
 
 function! s:on_lsp_buffer_enabled() abort
     setlocal omnifunc=lsp#complete
-    setlocal signcolumn=yes
+    "setlocal signcolumn=yes
     if exists('+tagfunc') | setlocal tagfunc=lsp#tagfunc | endif
     nmap <buffer> gd <plug>(lsp-definition)
     nmap <buffer> gs <plug>(lsp-document-symbol-search)
@@ -181,9 +188,6 @@ map <leader>l :let @+=expand("%")<CR>
 " ,n copy current file path and line number to clipboard
 map <leader>n :let @+=fnamemodify(expand("%"), ":~:.") . ":" . line(".")<CR>
 
-" highlight search results
-set hlsearch
-
 " show existing tab with 2 spaces width
 set tabstop=2
 " when indenting with '>', use 2 spaces width
@@ -193,6 +197,9 @@ set expandtab
 
 " don't wrap long lines of text
 set nowrap
+
+" highlight search results
+set hlsearch
 
 " hitting space bar clears the current search highlighting
 nmap <Space>  :let @/ = ""<CR>
