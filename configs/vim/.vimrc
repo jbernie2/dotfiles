@@ -69,11 +69,6 @@ Plug 'idris-hackers/idris-vim'
 " kotlin syntax highlighting
 Plug 'udalov/kotlin-vim'
 
-" language server protocol (lsp) client
-" see .vimiderc for settings
-Plug 'prabirshrestha/vim-lsp'
-Plug 'mattn/vim-lsp-settings'
-
 " All of your Plugins must be added before the following line
 call plug#end()
 

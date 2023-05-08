@@ -1,4 +1,80 @@
 source ~/.vimrc
+
+call plug#begin('~/.vim/plugged')
+" Plugins go here
+
+" git plugin
+Plug 'tpope/vim-fugitive'
+
+" easily delete, change and add surroundings in pairs
+" change
+"   'hello world' to [hello world]: cs']
+"   'hello world' to hello world: ds'
+"   hello world to (hello) world: ysiw)
+"   hello world to (hello world): yss)
+Plug 'tpope/vim-surround'
+
+" change case of a selection
+" convert to
+"   snake_case: crs
+"   MixedCase:  crm
+"   camelCase:  crc
+"   UPPER_CASE: cru
+"   dash-case:  cr-
+"   dot.case:   cr.
+"   space case: cr<space>
+"   Title Case: crt
+Plug 'https://github.com/tpope/vim-abolish'
+
+" make dot-repeat work with other tpope plugins
+Plug 'https://github.com/tpope/vim-repeat'
+
+" file tree
+Plug 'scrooloose/nerdtree'
+
+" fuzzy finder
+Plug 'junegunn/fzf'
+Plug 'junegunn/fzf.vim'
+
+Plug 'altercation/vim-colors-solarized'
+
+" auto-commenter
+Plug 'scrooloose/nerdcommenter'
+
+
+" RipGrep (Rg) search tool
+Plug 'jremmen/vim-ripgrep'
+
+" Seemless vim/tmux navigation
+Plug 'christoomey/vim-tmux-navigator'
+
+" Writable search aka global find and replace
+Plug 'AndrewRadev/writable_search.vim'
+
+"javascript Plugins
+" js synxtax highlighting
+Plug 'jelera/vim-javascript-syntax'
+
+"elm Plugins
+" elm syntax highlighting and utils
+Plug 'elmcast/elm-vim'
+
+" nix syntax highlighting
+Plug 'LnL7/vim-nix'
+
+" idris syntax highlighting
+Plug 'idris-hackers/idris-vim'
+
+" kotlin syntax highlighting
+Plug 'udalov/kotlin-vim'
+
+" language server protocol (lsp) client
+Plug 'prabirshrestha/vim-lsp'
+Plug 'mattn/vim-lsp-settings'
+
+" All of your Plugins must be added before the following line
+call plug#end()
+
 """""""""""""""""""""""""""""""""""""""""""""""""""
 """""  Language Server Protocol Configuration """""
 """""""""""""""""""""""""""""""""""""""""""""""""""
