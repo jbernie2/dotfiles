@@ -61,6 +61,14 @@ flash-ergodox-dry-run: ## test ergodox keymap build
 flash-ergodox: ## install ergodox keymap on keyboard
 		./scripts/qmk/build_keymap.sh $(KEYBOARD_LAYOUT_DIR) "ergodox_ez" "jbernie2" false
 
+.PHONY: flash-piantor-dry-run
+flash-piantor-dry-run: ## test piantor keymap build
+		./scripts/qmk/build_keymap.sh $(KEYBOARD_LAYOUT_DIR) "beekeeb/piantor" "jbernie2" true
+
+.PHONY: flash-piantor
+flash-piantor: ## install piantor keymap on keyboard
+		./scripts/qmk/build_keymap.sh $(KEYBOARD_LAYOUT_DIR) "beekeeb/piantor" "jbernie2" false
+
 #.PHONY: all
 all: ## install all configurations
 	$(MAKE) packages
