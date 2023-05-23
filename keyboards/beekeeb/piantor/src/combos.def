@@ -1,0 +1,54 @@
+// Left Hand Combos
+
+COMB(fd_shift,     KC_LSFT, KC_F, KC_D)
+COMB(fs_ctrl,      KC_LCTL, KC_F, KC_S)
+COMB(fg_alt,       KC_LALT, KC_F, KC_G)
+COMB(fa_gui,       KC_RGUI, KC_F, KC_A)
+COMB(fz_hypr,      KC_HYPR, KC_F, KC_Z)
+COMB(fe_tmux,      C(KC_SPACE), KC_F, KC_E)
+
+COMB(fds_shift_ctrl,     S(KC_LCTL), KC_F, KC_D, KC_S)
+COMB(fdg_shift_alt,      S(KC_LALT), KC_F, KC_D, KC_G)
+COMB(fda_shift_gui,      S(KC_LGUI), KC_F, KC_D, KC_A)
+
+COMB(fsg_ctrl_alt,       C(KC_LALT), KC_F, KC_S, KC_G)
+COMB(fsa_ctrl_gui,       C(KC_LGUI), KC_F, KC_S, KC_A)
+
+COMB(fga_alt_gui,        A(KC_LGUI), KC_F, KC_G, KC_A)
+
+COMB(fdsg_shift_ctrl_alt,        S(C(KC_LALT)), KC_F, KC_D, KC_S, KC_G)
+COMB(fdsa_shift_ctrl_gui,        S(C(KC_LGUI)), KC_F, KC_D, KC_S, KC_A)
+
+COMB(fdga_shift_alt_gui,         S(A(KC_LGUI)), KC_F, KC_D, KC_G, KC_A)
+
+COMB(fsga_ctrl_alt_gui,          C(A(KC_LGUI)), KC_F, KC_S, KC_G, KC_A)
+
+COMB(asdfg_hyper,                KC_HYPR, KC_A, KC_S, KC_D, KC_F, KC_G)
+
+
+// Right Hand Combos
+
+COMB(jk_shift,     KC_LSFT, KC_J, KC_K)
+COMB(jl_ctrl,      KC_LCTL, KC_J, KC_L)
+COMB(jh_alt,       KC_LALT, KC_J, KC_H)
+COMB(jq_gui,       KC_RGUI, KC_J, KC_QUOTE)
+COMB(js_hypr,      KC_HYPR, KC_J, KC_SLASH)
+COMB(ji_tmux,      C(KC_SPACE), KC_J, KC_I)
+
+COMB(jkl_shift_ctrl,     S(KC_LCTL), KC_J, KC_K, KC_L)
+COMB(jkh_shift_alt,      S(KC_LALT), KC_J, KC_K, KC_H)
+COMB(jkq_shift_gui,      S(KC_LGUI), KC_J, KC_K, KC_QUOTE)
+
+COMB(jlh_ctrl_alt,       C(KC_LALT), KC_J, KC_L, KC_H)
+COMB(jlq_ctrl_gui,       C(KC_LGUI), KC_J, KC_L, KC_QUOTE)
+
+COMB(jhq_alt_gui,        A(KC_LGUI), KC_J, KC_H, KC_QUOTE)
+
+COMB(jklh_shift_ctrl_alt,        S(C(KC_LALT)), KC_J, KC_K, KC_L, KC_H)
+COMB(jklq_shift_ctrl_gui,        S(C(KC_LGUI)), KC_J, KC_K, KC_L, KC_QUOTE)
+
+COMB(jkhq_shift_alt_gui,         S(A(KC_LGUI)), KC_J, KC_K, KC_H, KC_QUOTE)
+
+COMB(jlhq_ctrl_alt_gui,          C(A(KC_LGUI)), KC_J, KC_L, KC_H, KC_QUOTE)
+
+COMB(qlkjh_hyper,                KC_HYPR, KC_QUOTE, KC_L, KC_K, KC_J, KC_H)
