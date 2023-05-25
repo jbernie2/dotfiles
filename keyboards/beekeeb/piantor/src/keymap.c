@@ -57,7 +57,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     [4] = LAYOUT_split_3x6_3(
         KC_NO,  KC_LBRC, KC_7,    KC_8,    KC_9,    KC_RBRC,                   KC_NO,  KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,
-        KC_NO,  KC_SCLN, KC_4,    KC_4,    KC_5,    KC_EQL,                    KC_NO,  KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,
+        KC_NO,  KC_SCLN, KC_4,    KC_5,    KC_6,    KC_EQL,                    KC_NO,  KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,
         KC_NO,  KC_GRV,  KC_1,    KC_2,    KC_3,    KC_BSLS,                   KC_NO,  KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,
                                   KC_DOT,  KC_0,    KC_MINS,                   KC_NO,   KC_NO,   KC_NO
     ),
@@ -88,13 +88,13 @@ bool get_hold_on_other_key_press(uint16_t keycode, keyrecord_t *record) {
     }
 }
 
-bool get_tapping_force_hold(uint16_t keycode, keyrecord_t *record) {
+uint16_t get_quick_tap_term(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
         case LT(4, KC_BSPC):
         case LT(5, KC_ENT):
-            return true;
+            return 70;
         default:
-            return false;
+            return QUICK_TAP_TERM;
     }
 }
 
