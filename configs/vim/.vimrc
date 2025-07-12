@@ -170,5 +170,9 @@ set clipboard=unnamed
 command! -nargs=? Ws WritableSearch <args>
 
 " update ctags on file save
-au BufWritePost * silent! ![[ -f ~/.ctags.d/generate_ctags.sh ]] && source ~/.ctags.d/generate_ctags.sh &
+"au BufWritePost * silent! ![[ -f ~/.ctags.d/generate_ctags.sh ]] && source ~/.ctags.d/generate_ctags.sh &
+
+" default regex engine does not play well with typescript
+" so set regex engine to type '2'
+set re=2
 
