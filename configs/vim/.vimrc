@@ -176,3 +176,14 @@ command! -nargs=? Ws WritableSearch <args>
 " so set regex engine to type '2'
 set re=2
 
+""""""""""" MARKDOWN FILE FORMATTING """""""""
+
+" Treat all .md files as markdown
+autocmd BufNewFile,BufRead *.md set filetype=markdown
+" wrap lines longer than 100 characters in markdown files
+autocmd FileType markdown setlocal textwidth=100
+autocmd FileType markdown setlocal spell
+" Highlight the line the cursor is on
+autocmd FileType markdown set cursorline
+
+"""""""" END MARKDOWN FILE FORMATTING """"""""
