@@ -46,10 +46,6 @@ tmux: ## use tmux config.
 psql: ## use psql-cli config.
 	cp -f ./configs/psql/.psqlrc $(HOME_DIR)
 
-.PHONY: ctags
-ctags: ## use ctags config.
-	cp -Rf ./configs/ctags/.ctags.d $(HOME_DIR)
-
 .PHONY: iterm-profile
 iterm-profile: ## iterm customizations
 	cp -f ./configs/iterm/com.googlecode.iterm2.plist $(HOME_DIR)/Library/Preferences
