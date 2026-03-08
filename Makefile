@@ -30,8 +30,9 @@ git: ## use git configuration
 .PHONY: vim
 vim: ## use vim config. Installs Vundle.
 	./scripts/vim/copy_vimrc.sh $(HOME_DIR)
-		./scripts/vim/install_git_plug.sh $(HOME_DIR)
-		./scripts/vim/install_plugins.sh
+	./scripts/vim/install_git_plug.sh $(HOME_DIR)
+	./scripts/vim/install_plugin_dependencies.sh
+	./scripts/vim/install_plugins.sh
 
 .PHONY: tmux-default-shell
 tmux-default-shell: ## open tmux on shell start

@@ -69,6 +69,9 @@ Plug 'idris-hackers/idris-vim'
 " kotlin syntax highlighting
 Plug 'udalov/kotlin-vim'
 
+" auto formatting
+Plug 'vim-autoformat/vim-autoformat'
+
 " All of your Plugins must be added before the following line
 call plug#end()
 
@@ -122,7 +125,7 @@ set foldlevel=99
 " enable syntax highligting and set palette
 set t_Co=256
 syntax enable
-set background=dark 
+set background=dark
 
 " show line numbers
 set number
@@ -138,6 +141,9 @@ map <leader>l :let @+=expand("%")<CR>
 
 " ,n copy current file path and line number to clipboard
 map <leader>n :let @+=fnamemodify(expand("%"), ":~:.") . ":" . line(".")<CR>
+
+" ,f to format a file
+map <leader>f :Autoformat<CR>
 
 " show existing tab with 2 spaces width
 set tabstop=2
@@ -175,6 +181,9 @@ command! -nargs=? Ws WritableSearch <args>
 " default regex engine does not play well with typescript
 " so set regex engine to type '2'
 set re=2
+
+" auto format file on save
+au BufWrite * :Autoformat<CR>
 
 """"""""""" MARKDOWN FILE FORMATTING """""""""
 
