@@ -12,15 +12,15 @@ help:
 .PHONY: packages
 packages: ## package manager installs
 	./scripts/homebrew/install.sh
-		./scripts/homebrew/packages.sh
+	./scripts/homebrew/packages.sh
 
 .PHONY: bash
 bash: ## install/reload bash config files
 	./scripts/common/create_dir.sh $(BASH_CONFIG_DIR)
-		./scripts/bash/copy_bash_configs.sh $(BASH_CONFIG_DIR)
-		./scripts/bash/source_config_on_startup.sh $(BASH_CONFIG_DIR)
-		./scripts/bash/reload_bash_configuration.sh
-		./scripts/git/auto_complete.sh $(BASH_CONFIG_DIR)
+	./scripts/bash/copy_bash_configs.sh $(BASH_CONFIG_DIR)
+	./scripts/bash/source_config_on_startup.sh $(BASH_CONFIG_DIR)
+	./scripts/bash/reload_bash_configuration.sh
+	./scripts/git/auto_complete.sh $(BASH_CONFIG_DIR)
 
 .PHONY: git
 git: ## use git configuration
@@ -53,31 +53,31 @@ ctags: ## use ctags config.
 .PHONY: iterm-profile
 iterm-profile: ## iterm customizations
 	cp -f ./configs/iterm/com.googlecode.iterm2.plist $(HOME_DIR)/Library/Preferences
-	
+
 .PHONY: flash-ergodox-dry-run
 flash-ergodox-dry-run: ## test ergodox keymap build
-		./scripts/qmk/build_keymap.sh $(KEYBOARD_LAYOUT_DIR) "ergodox_ez" "jbernie2" true
+	./scripts/qmk/build_keymap.sh $(KEYBOARD_LAYOUT_DIR) "ergodox_ez" "jbernie2" true
 
 .PHONY: flash-ergodox
 flash-ergodox: ## install ergodox keymap on keyboard
-		./scripts/qmk/build_keymap.sh $(KEYBOARD_LAYOUT_DIR) "ergodox_ez" "jbernie2" false
+	./scripts/qmk/build_keymap.sh $(KEYBOARD_LAYOUT_DIR) "ergodox_ez" "jbernie2" false
 
 .PHONY: flash-piantor-dry-run
 flash-piantor-dry-run: ## test piantor keymap build
-		./scripts/qmk/build_keymap.sh $(KEYBOARD_LAYOUT_DIR) "beekeeb/piantor" "jbernie2" true
+	./scripts/qmk/build_keymap.sh $(KEYBOARD_LAYOUT_DIR) "beekeeb/piantor" "jbernie2" true
 
 .PHONY: flash-piantor
 flash-piantor: ## install piantor keymap on keyboard
-		./scripts/qmk/build_keymap.sh $(KEYBOARD_LAYOUT_DIR) "beekeeb/piantor" "jbernie2" false
+	./scripts/qmk/build_keymap.sh $(KEYBOARD_LAYOUT_DIR) "beekeeb/piantor" "jbernie2" false
 
 #.PHONY: all
 all: ## install all configurations
 	$(MAKE) packages
-		$(MAKE) bash
-		$(MAKE) git
-		$(MAKE) vim
-		$(MAKE) tmux
-		$(MAKE) tmux-default-shell
-		$(MAKE) psql
-		$(MAKE) iterm-profile
-		$(MAKE) additional-steps
+	$(MAKE) bash
+	$(MAKE) git
+	$(MAKE) vim
+	$(MAKE) tmux
+	$(MAKE) tmux-default-shell
+	$(MAKE) psql
+	$(MAKE) iterm-profile
+	$(MAKE) additional-steps
