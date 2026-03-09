@@ -196,3 +196,15 @@ autocmd FileType markdown setlocal spell
 autocmd FileType markdown set cursorline
 
 """""""" END MARKDOWN FILE FORMATTING """"""""
+
+" creates commad OpenGem that open ruby gem's source code in the current
+" buffer
+" Usage:
+" :OpenGem <gem_name>
+" Example:
+" :OpenGem dry-monads
+function! s:OpenGemPath(gem_name)
+  let gem_path = system("bundle show " . a:gem_name)
+  execute "e " . gem_path
+endfunction
+command! -nargs=1 OpenGem call s:OpenGemPath(<f-args>)
