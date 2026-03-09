@@ -18,4 +18,5 @@ fi
 
 # Key bindings
 # ------------
-source "/opt/homebrew/opt/fzf/shell/key-bindings.bash"
+# Set up fzf key bindings and fuzzy completion
+eval "$(fzf --bash)"
