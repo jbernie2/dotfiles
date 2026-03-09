@@ -3,5 +3,4 @@ alias la="ls -Ga"
 alias ll="ls -Gal"
 alias gitlog="git lg"
 alias g="git status"
-
-alias vimide="vim -u ~/.vimiderc"
+alias vimide="vim --cmd 'let enable_lsp=1'"

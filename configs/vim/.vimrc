@@ -1,6 +1,10 @@
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
+" to enable language server protocol (lsp) features
+" the variable enable_lsp must be set to true
+" the alias vimide does this for you
+
 call plug#begin('~/.vim/plugged')
 " Plugins go here
 
@@ -72,16 +76,16 @@ Plug 'udalov/kotlin-vim'
 " auto formatting
 Plug 'vim-autoformat/vim-autoformat'
 
+Plug 'prabirshrestha/vim-lsp'
+Plug 'mattn/vim-lsp-settings'
+
 " All of your Plugins must be added before the following line
 call plug#end()
 
 " set leader key to ,
 let mapleader = ","
 
-"""""""""""""""""""""""""""""""""""
 """""  NERDTREE Configuration """""
-"""""""""""""""""""""""""""""""""""
-
 " make '|' command smart
 " if in the NerdTree window, close
 " if in a file, open, and go to that file in NerdTree
@@ -110,9 +114,7 @@ let NERDTreeShowHidden=1
 " keep the bottom menu restricted to 1 line
 let g:NERDTreeMinimalMenu=1
 
-"""""""""""""""""""""""""""""""""""
-"""""""""""""""""""""""""""""""""""
-"""""""""""""""""""""""""""""""""""
+"""""  END NERDTREE Configuration """""
 
 " set some nice defaults for folding
 " fold based on language
@@ -196,3 +198,51 @@ autocmd FileType markdown setlocal spell
 autocmd FileType markdown set cursorline
 
 """""""" END MARKDOWN FILE FORMATTING """"""""
+
+
+"""""  Language Server Protocol Configuration """""
+
+" for installing language servers: see documentation
+" here: https://github.com/mattn/vim-lsp-settings
+
+" tldr: run
+" :LspInstallServer
+" which will install a language server to a global location
+" based on the file type that is open when the command is run
+
+function! s:on_lsp_buffer_enabled() abort
+  setlocal omnifunc=lsp#complete
+  "setlocal signcolumn=yes
+  if exists('+tagfunc') | setlocal tagfunc=lsp#tagfunc | endif
+  nmap <buffer> gd <plug>(lsp-definition)
+  nmap <buffer> gs <plug>(lsp-document-symbol-search)
+  nmap <buffer> gS <plug>(lsp-workspace-symbol-search)
+  nmap <buffer> gr <plug>(lsp-references)
+  nmap <buffer> gi <plug>(lsp-implementation)
+  nmap <buffer> gD <plug>(lsp-type-definition)
+  nmap <buffer> <leader>rn <plug>(lsp-rename)
+  nmap <buffer> [g <plug>(lsp-previous-diagnostic)
+  nmap <buffer> ]g <plug>(lsp-next-diagnostic)
+  nmap <buffer> K <plug>(lsp-hover)
+  nnoremap <buffer> <expr><c-f> lsp#scroll(+4)
+  nnoremap <buffer> <expr><c-d> lsp#scroll(-4)
+
+  let g:lsp_format_sync_timeout = 1000
+  autocmd! BufWritePre *.rs,*.go call execute('LspDocumentFormatSync')
+
+  " refer to doc to add more commands
+endfunction
+
+if exists('enable_lsp')
+  let g:lsp_auto_enable = 1
+  " don't show in line errors
+  let g:lsp_diagnostics_enabled = 0
+
+  augroup lsp_install
+    au!
+    " call s:on_lsp_buffer_enabled only for languages that has the server registered.
+    autocmd User lsp_buffer_enabled call s:on_lsp_buffer_enabled()
+  augroup END
+endif
+
+"""""  END Language Server Protocol Configuration """""
