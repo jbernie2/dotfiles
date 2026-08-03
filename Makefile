@@ -34,6 +34,13 @@ vim: ## use vim config. Installs Vundle.
 	./scripts/vim/install_plugin_dependencies.sh
 	./scripts/vim/install_plugins.sh
 
+.PHONY: cmux
+cmux: ## install cmux config.
+	mkdir -p $(HOME_DIR)/.config/cmux
+	mkdir -p $(HOME_DIR)/.config/ghostty
+	cp -f ./configs/cmux/cmux.jsonc $(HOME_DIR)/.config/cmux/cmux.json
+	cp -f ./configs/ghostty/config $(HOME_DIR)/.config/ghostty/config
+
 .PHONY: tmux-default-shell
 tmux-default-shell: ## open tmux on shell start
 	cp -f ./configs/tmux/0_tmux_on_startup.sh $(BASH_CONFIG_DIR)
@@ -76,4 +83,3 @@ all: ## install all configurations
 	$(MAKE) tmux-default-shell
 	$(MAKE) psql
 	$(MAKE) iterm-profile
-	$(MAKE) additional-steps

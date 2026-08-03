@@ -72,6 +72,11 @@ Plug 'udalov/kotlin-vim'
 " auto formatting
 Plug 'vim-autoformat/vim-autoformat'
 
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+let g:coc_global_extensions = [
+  \ 'coc-tsserver'
+  \ ]
+
 " All of your Plugins must be added before the following line
 call plug#end()
 
@@ -168,7 +173,7 @@ nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 
 " ctrl+p to open fuzzy finder
-map <C-p> :FZF<CR>
+map <C-p> :FZF -i<CR>
 
 " use system clipboard for yanking text
 set clipboard=unnamed
@@ -183,7 +188,7 @@ command! -nargs=? Ws WritableSearch <args>
 set re=2
 
 " auto format file on save
-au BufWrite * :Autoformat<CR>
+" au BufWrite * :Autoformat<CR>
 
 """"""""""" MARKDOWN FILE FORMATTING """""""""
 
@@ -208,3 +213,22 @@ function! s:OpenGemPath(gem_name)
   execute "e " . gem_path
 endfunction
 command! -nargs=1 OpenGem call s:OpenGemPath(<f-args>)
+
+
+"  Coc config
+" Use K to show documentation in preview window
+nnoremap <silent> K :call ShowDocumentation()<CR>
+
+function! ShowDocumentation()
+  if CocAction('hasProvider', 'hover')
+    call CocActionAsync('doHover')
+  else
+    call feedkeys('K', 'in')
+  endif
+endfunction
+
+" GoTo code navigation
+nmap <silent><nowait> gd <Plug>(coc-definition)
+nmap <silent><nowait> gy <Plug>(coc-type-definition)
+nmap <silent><nowait> gi <Plug>(coc-implementation)
+nmap <silent><nowait> gr <Plug>(coc-references)

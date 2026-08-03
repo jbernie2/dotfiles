@@ -2,9 +2,13 @@
   st = status
   lg = log --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
   co = checkout
+  wta = "!f() { git worktree add -b \"$1\" \"../$1\"; }; f"
+  wtr = "!f() { git worktree remove --force \"../$1\"; }; f"
+  wtl = "!f() { git worktree list; }; f"
 [user]
   name = John Bernier
-  email = john.bernier@stash.com
+  email = johnb@secureframe.com
+	signingkey = BC2D0711E04D64FE
 [pull]
   ff = only
 [push]
@@ -12,3 +16,5 @@
 [init]
 	templatedir = ~/.git_template
   defaultBranch = main
+[commit]
+	gpgsign = true
