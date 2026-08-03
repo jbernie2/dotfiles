@@ -188,7 +188,7 @@ command! -nargs=? Ws WritableSearch <args>
 set re=2
 
 " auto format file on save
-au BufWrite * :Autoformat<CR>
+" au BufWrite * :Autoformat<CR>
 
 """"""""""" MARKDOWN FILE FORMATTING """""""""
 
