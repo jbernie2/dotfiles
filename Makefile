@@ -76,4 +76,3 @@ all: ## install all configurations
 	$(MAKE) tmux-default-shell
 	$(MAKE) psql
 	$(MAKE) iterm-profile
-	$(MAKE) additional-steps
