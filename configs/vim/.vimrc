@@ -173,7 +173,7 @@ nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 
 " ctrl+p to open fuzzy finder
-map <C-p> :FZF<CR>
+map <C-p> :FZF -i<CR>
 
 " use system clipboard for yanking text
 set clipboard=unnamed
