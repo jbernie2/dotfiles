@@ -9,16 +9,28 @@ KEYBOARD_LAYOUT_DIR="./keyboards"
 help:
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}'
 
-.PHONY: packages
-packages: ## package manager installs
+.PHONY: packages-osx
+packages-osx: ## package manager installs
 	./scripts/homebrew/install.sh
 	./scripts/homebrew/packages.sh
 
-.PHONY: bash
-bash: ## install/reload bash config files
+.PHONY: packages-debian
+packages-debian: ## package manager installs
+	./scripts/debian/packages.sh
+
+.PHONY: bash-osx
+bash-osx: ## install/reload bash config files
 	./scripts/common/create_dir.sh $(BASH_CONFIG_DIR)
 	./scripts/bash/copy_bash_configs.sh $(BASH_CONFIG_DIR)
-	./scripts/bash/source_config_on_startup.sh $(BASH_CONFIG_DIR)
+	./scripts/bash/source_config_on_startup.sh $(BASH_CONFIG_DIR) ~/.bash_profile
+	./scripts/bash/reload_bash_configuration.sh
+	./scripts/git/auto_complete.sh $(BASH_CONFIG_DIR)
+
+.PHONY: bash-debian
+bash-debian: ## install/reload bash config files
+	./scripts/common/create_dir.sh $(BASH_CONFIG_DIR)
+	./scripts/bash/copy_bash_configs.sh $(BASH_CONFIG_DIR)
+	./scripts/bash/source_config_on_startup.sh $(BASH_CONFIG_DIR) ~/.bashrc
 	./scripts/bash/reload_bash_configuration.sh
 	./scripts/git/auto_complete.sh $(BASH_CONFIG_DIR)
 
@@ -50,6 +62,11 @@ psql: ## use psql-cli config.
 iterm-profile: ## iterm customizations
 	cp -f ./configs/iterm/com.googlecode.iterm2.plist $(HOME_DIR)/Library/Preferences
 
+.PHONY: ghostty
+ghostty: ## ghostty customizations
+	mkdir -p $(HOME_DIR)/.configs/ghostty
+	cp -f ./configs/ghostty/config.ghostty $(HOME_DIR)/.configs/ghostty
+
 .PHONY: flash-ergodox-dry-run
 flash-ergodox-dry-run: ## test ergodox keymap build
 	./scripts/qmk/build_keymap.sh $(KEYBOARD_LAYOUT_DIR) "ergodox_ez" "jbernie2" true
@@ -66,14 +83,24 @@ flash-piantor-dry-run: ## test piantor keymap build
 flash-piantor: ## install piantor keymap on keyboard
 	./scripts/qmk/build_keymap.sh $(KEYBOARD_LAYOUT_DIR) "beekeeb/piantor" "jbernie2" false
 
-#.PHONY: all
-all: ## install all configurations
-	$(MAKE) packages
-	$(MAKE) bash
+#.PHONY: all-osx
+all-osx: ## install all configurations for osx
+	$(MAKE) packages-osx
+	$(MAKE) bash-osx
 	$(MAKE) git
 	$(MAKE) vim
 	$(MAKE) tmux
 	$(MAKE) tmux-default-shell
 	$(MAKE) psql
 	$(MAKE) iterm-profile
-	$(MAKE) additional-steps
+
+#.PHONY: all-debian
+all-debian: ## install all configurations for debian
+	$(MAKE) packages-debian
+	$(MAKE) bash-debian
+	$(MAKE) git
+	$(MAKE) vim
+	$(MAKE) tmux
+	$(MAKE) tmux-default-shell
+	$(MAKE) psql
+	$(MAKE) ghostty
