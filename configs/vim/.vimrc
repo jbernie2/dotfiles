@@ -172,6 +172,7 @@ map <C-p> :FZF<CR>
 
 " use system clipboard for yanking text
 set clipboard=unnamed
+set clipboard=unnamedplus
 
 command! -nargs=? Ws WritableSearch <args>
 
