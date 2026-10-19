@@ -5,3 +5,4 @@ alias gitlog="git lg"
 alias g="git status"
 
 alias vimide="vim -u ~/.vimiderc"
+alias gpg_unlock="echo test | gpg --clearsign > /dev/null"
