@@ -40,6 +40,7 @@ cmux: ## install cmux config.
 	mkdir -p $(HOME_DIR)/.config/ghostty
 	cp -f ./configs/cmux/cmux.jsonc $(HOME_DIR)/.config/cmux/cmux.json
 	cp -f ./configs/ghostty/config $(HOME_DIR)/.config/ghostty/config
+	cp -f ./configs/ghostty/ghostty_inherit_cwd_when_opening_new_terminal.sh $(HOME_DIR)/.bash/
 
 .PHONY: tmux-default-shell
 tmux-default-shell: ## open tmux on shell start

@@ -13,7 +13,7 @@
   //     "renameSelectsExistingName" : true,
   //     "keepWorkspaceOpenWhenClosingLastSurface" : false,
   //     "sendAnonymousTelemetry" : true,
-  //     "workspaceInheritWorkingDirectory" : true,
+    "workspaceInheritWorkingDirectory" : true,
   //     "appearance" : "system",
   //     "forkConversationDefaultDestination" : "right",
   //     "openSupportedFilesInCmux" : true,

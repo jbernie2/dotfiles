@@ -1,8 +1,5 @@
-font-family = SF Mono
-font-size = 13
-sidebar-font-size = 14
-surface-tab-bar-font-size = 11
-theme = One Dark
 scrollback-limit = 50000000
-split-divider-color = #3e4451
 
+window-inherit-working-directory = true
+tab-inherit-working-directory = true
+split-inherit-working-directory = true
