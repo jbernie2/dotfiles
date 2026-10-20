@@ -4,9 +4,12 @@
 #   multizoom.sh toggle [pane]          hide every unmarked pane in the pane's window, or bring
 #                                       them back if they are already hidden
 #   multizoom.sh clear [pane]           forget the marks in the pane's window
-# Hidden panes are moved to a window named "zstash"; the original layout is saved and restored.
+# Hidden panes are moved to a window in a separate "zstash" session (created on demand, so
+# they never show up in the window list); the original layout and pane order are restored.
 # The pane defaults to $TMUX_PANE; key bindings pass #{pane_id} explicitly.
 set -euo pipefail
+
+STASH_SESSION=zstash
 
 cmd=${1:-}
 case "$cmd" in
@@ -66,15 +69,13 @@ case "$cmd" in
     [ -n "$others" ] || exit 0  # everything is marked: nothing to hide
     tmux set -w -t "$win" @mz_layout "$(tmux display -p -t "$win" '#{window_layout}')"
     tmux set -w -t "$win" @mz_order "$(tmux list-panes -t "$win" -F '#{pane_id}' | tr '\n' ' ')"
-    stash=""
+    # The session's first window ("keep") only exists to hold the session open between stashes.
+    tmux has-session -t "=$STASH_SESSION" 2>/dev/null || tmux new-session -d -s "$STASH_SESSION" -n keep
+    read -r stash placeholder < <(tmux new-window -d -t "$STASH_SESSION:" -n "zstash" -P -F '#{window_id} #{pane_id}')
     for p in $others; do
-      if [ -z "$stash" ]; then
-        # -a -t: the stash window sits right after this one, in this session
-        stash=$(tmux break-pane -d -a -s "$p" -t "$win" -n zstash -P -F '#{window_id}')
-      else
-        tmux join-pane -d -s "$p" -t "$stash"
-      fi
+      tmux join-pane -d -s "$p" -t "$stash"
     done
+    tmux kill-pane -t "$placeholder"  # the shell new-window started
     tmux set -w -t "$win" @mz_stash "$stash"
     ;;
 esac
