@@ -49,6 +49,9 @@ tmux-default-shell: ## open tmux on shell start
 .PHONY: tmux
 tmux: ## use tmux config.
 	cp -f ./configs/tmux/.tmux.conf $(HOME_DIR)
+	mkdir -p $(HOME_DIR)/.tmux
+	cp -f ./configs/tmux/multizoom.sh $(HOME_DIR)/.tmux/
+	chmod +x $(HOME_DIR)/.tmux/multizoom.sh
 
 .PHONY: psql
 psql: ## use psql-cli config.
